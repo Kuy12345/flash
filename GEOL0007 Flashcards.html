@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)file:///Users/oliverburmester/Downloads/geol_flashcards_v7.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEOL0007 Flashcards</title>
+<link href="./GEOL0007 Flashcards_files/css2" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --bg: #0d0d10;
+  --bg2: #13131a;
+  --bg3: #1a1a24;
+  --bg4: #20202e;
+  --border: #2a2a3a;
+  --border2: #353548;
+  --text: #e2e0f0;
+  --text2: #8884a8;
+  --text3: #5a5875;
+  --cyan: #4ef0d4;
+  --pink: #f04e7a;
+  --green: #3ecf8e;
+  --yellow: #f0c14e;
+  --purple: #9b7ef0;
+  --card-bg: #141420;
+  --card-border: #252535;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── TOP BADGE ── */
+.top-badge {
+  display: flex;
+  justify-content: center;
+  padding: 28px 0 16px;
+}
+.badge {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--bg);
+  background: var(--cyan);
+  padding: 5px 14px;
+  border-radius: 4px;
+}
+
+/* ── HEADER ── */
+.main-title {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(22px, 4vw, 38px);
+  font-weight: 700;
+  text-align: center;
+  color: var(--text);
+  letter-spacing: -1px;
+  padding: 0 20px 8px;
+  line-height: 1.15;
+}
+.subtitle {
+  text-align: center;
+  color: var(--text3);
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  padding-bottom: 28px;
+  font-family: 'Space Mono', monospace;
+}
+
+/* ── LECTURE TABS ── */
+.lecture-tabs {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  scrollbar-width: none;
+}
+.lecture-tabs::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  padding: 12px 18px;
+  background: transparent;
+  border: none;
+  color: var(--text3);
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all 0.2s;
+}
+.tab-btn:hover { color: var(--text2); }
+.tab-btn.active {
+  color: var(--cyan);
+  border-bottom-color: var(--cyan);
+}
+
+/* ── TOPIC PILLS ── */
+.pills-wrap {
+  padding: 20px 24px 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.pill {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+  border: 1px solid var(--border2);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--text3);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.pill:hover { border-color: var(--text2); color: var(--text2); }
+.pill.active { border-color: var(--cyan); color: var(--cyan); background: rgba(78,240,212,0.06); }
+
+/* ── CONTROLS ── */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 24px 16px;
+  flex-wrap: wrap;
+}
+.ctrl-btn {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.ctrl-btn:hover { border-color: var(--text2); color: var(--text); }
+.ctrl-btn.review { border-color: var(--yellow); color: var(--yellow); }
+.ctrl-btn.review:hover { background: rgba(240,193,78,0.08); }
+
+/* ── PROGRESS ── */
+.progress-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px 12px;
+}
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--text3);
+  margin-bottom: 8px;
+}
+.progress-track {
+  height: 3px;
+  background: var(--bg4);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--cyan);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+/* ── CARD ── */
+.card-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px 20px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  min-height: 240px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+  user-select: none;
+}
+.card:hover { border-color: var(--border2); }
+.card.flipped { border-color: var(--purple); }
+
+.card-inner {
+  perspective: 1000px;
+}
+.card-flipper {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+  min-height: 240px;
+}
+.card-flipper.flipped { transform: rotateY(180deg); }
+
+.card-side {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  padding: 40px 44px;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.card-back-side {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  transform: rotateY(180deg);
+  background: var(--card-bg);
+  border-radius: 10px;
+}
+
+.card-type-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.card-front-side .card-type-label { color: var(--purple); }
+.card-back-side .card-type-label { color: var(--pink); }
+
+.card-text {
+  font-size: clamp(15px, 2.5vw, 19px);
+  line-height: 1.6;
+  color: var(--text);
+  font-weight: 400;
+}
+.card-back-side .card-text { font-weight: 300; font-size: clamp(14px, 2vw, 17px); }
+
+.card-hint {
+  position: absolute;
+  bottom: 16px;
+  right: 20px;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--text3);
+  letter-spacing: 0.5px;
+}
+
+.topic-tag {
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--text3);
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-top: 18px;
+}
+
+/* ── NAVIGATION ── */
+.nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 8px 24px 16px;
+}
+.nav-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  font-family: 'Space Mono', monospace;
+}
+.nav-btn:hover { border-color: var(--cyan); color: var(--cyan); }
+.nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.nav-counter {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  color: var(--text2);
+  min-width: 80px;
+  text-align: center;
+}
+
+/* ── KNOW/LEARN BUTTONS ── */
+.verdict-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 4px 24px 20px;
+}
+.verdict-btn {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  padding: 13px 32px;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+}
+.verdict-btn.visible {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+  transition: opacity 0.25s ease 0.3s, transform 0.25s ease 0.3s, background 0.15s;
+}
+.btn-know {
+  background: rgba(62,207,142,0.15);
+  color: var(--green);
+  border: 1px solid rgba(62,207,142,0.35);
+}
+.btn-know:hover { background: rgba(62,207,142,0.25); }
+.btn-learn {
+  background: rgba(240,78,122,0.12);
+  color: var(--pink);
+  border: 1px solid rgba(240,78,122,0.3);
+}
+.btn-learn:hover { background: rgba(240,78,122,0.22); }
+
+/* ── STATS BAR ── */
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  padding: 12px 24px 40px;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: var(--text3);
+}
+.stat-item span { font-weight: 700; }
+.stat-known { color: var(--green); }
+.stat-learn { color: var(--pink); }
+.stat-unseen { color: var(--text2); }
+
+/* ── COMPLETE OVERLAY ── */
+.complete-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(13,13,16,0.92);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+.complete-overlay.show { display: flex; }
+.complete-box {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  padding: 48px 40px;
+  max-width: 440px;
+  width: 90%;
+  text-align: center;
+}
+.complete-box h2 {
+  font-family: 'Space Mono', monospace;
+  font-size: 22px;
+  color: var(--cyan);
+  margin-bottom: 8px;
+}
+.complete-box p {
+  color: var(--text3);
+  font-size: 13px;
+  margin-bottom: 28px;
+  font-family: 'Space Mono', monospace;
+}
+.complete-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.cstat {
+  background: var(--bg4);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+}
+.cstat-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.cstat-label { font-size: 11px; color: var(--text3); letter-spacing: 0.5px; }
+.complete-actions { display: flex; flex-direction: column; gap: 10px; }
+.ca-btn {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  padding: 14px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+.ca-primary { background: var(--cyan); color: var(--bg); }
+.ca-primary:hover { opacity: 0.88; }
+.ca-secondary {
+  background: transparent;
+  color: var(--text3);
+  border: 1px solid var(--border2);
+}
+.ca-secondary:hover { color: var(--text); border-color: var(--text2); }
+
+@media (max-width: 600px) {
+  .card-side { padding: 28px 24px; }
+  .controls { gap: 8px; }
+  .ctrl-btn { font-size: 10px; padding: 9px 14px; }
+}
+</style>
+</head>
+<body>
+
+<script>
+// ================================================================
+//  FLASHCARD DATA — ADD NEW LECTURES BY APPENDING TO THIS ARRAY
+//  Each card: { q, a, lecture, week, topic }
+// ================================================================
+const FLASHCARDS = [
+
+  // ══════════════════════════════════════════════════════
+  // WEEK 1 — LECTURE 6: ROCK CYCLE & MAJOR ROCK GROUPS
+  // ══════════════════════════════════════════════════════
+
+  // ROCK GROUPS
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK GROUPS", q:"What are the three major rock groups?", a:"Igneous, Sedimentary, and Metamorphic." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK GROUPS", q:"What is the source of material for igneous rocks?", a:"Melting of rocks in the hot, deep crust and upper mantle." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK GROUPS", q:"What is the rock-forming process for igneous rocks?", a:"Crystallisation — solidification of magma." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK GROUPS", q:"What is the source of material for sedimentary rocks?", a:"Weathering and erosion of rocks exposed at Earth's surface." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK GROUPS", q:"What is the rock-forming process for sedimentary rocks?", a:"Deposition, burial, and lithification." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK GROUPS", q:"What is the source of material for metamorphic rocks?", a:"Transformation of rocks under high temperatures and pressures in the deep crust and upper mantle." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK GROUPS", q:"What is the rock-forming process for metamorphic rocks?", a:"Deformation and recrystallisation in solid state, producing new minerals." },
+
+  // ROCK CYCLE
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK CYCLE", q:"What is intrusive igneous rock?", a:"Magma that solidified within the Earth (below the surface)." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK CYCLE", q:"What is extrusive igneous rock?", a:"Magma that reached the Earth's surface and erupted, then cooled." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK CYCLE", q:"What process converts loose sediment into sedimentary rock?", a:"Lithification — burial, compaction, and cementation." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK CYCLE", q:"What converts sedimentary rock into metamorphic rock?", a:"Deeper burial combined with increasing heat and pressure." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK CYCLE", q:"What can cause additional burial leading to metamorphism besides sediment accumulation?", a:"Tectonic stacking of geological units during mountain building." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK CYCLE", q:"What happens to metamorphic rock if heated even further?", a:"It undergoes partial melting to produce magma, restarting the cycle." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK CYCLE", q:"Why is melting during metamorphism described as 'partial'?", a:"Different minerals have different melting temperatures, so not all minerals melt simultaneously." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK CYCLE", q:"What are the two ways rocks break down during weathering?", a:"Physically into clasts (rock fragments) and chemically into ions dissolved in water." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK CYCLE", q:"Where are sediments deposited?", a:"In low-energy environments." },
+
+  // ZIRCON
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK CYCLE", q:"Why is zircon useful for tracing the rock cycle?", a:"It is extremely resistant to weathering, survives multiple rock cycle journeys intact, and can be radiometrically dated." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK CYCLE", q:"Zircon Stage 1: where does it first form?", a:"As part of an igneous rock in a continental rift." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK CYCLE", q:"Zircon Stage 2: what happens to the igneous rock?", a:"It is eroded, producing sand near the volcano." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK CYCLE", q:"Zircon Stage 3: what happens to the sand?", a:"Buried and lithified to form sandstone, then uplifted and exposed." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK CYCLE", q:"Zircon Stage 4: what happens to the sandstone?", a:"It erodes; the zircon forms part of new sediment deposited in a submarine fan." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK CYCLE", q:"What is a submarine fan?", a:"A fan-shaped sediment deposit on the deep ocean floor, formed where sediment-laden currents flow off the continental shelf." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK CYCLE", q:"Zircon Stage 5: what happens when the ocean closes?", a:"The submarine fan is subducted." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK CYCLE", q:"Zircon Stage 6: what happens during subduction?", a:"The sedimentary rock is metamorphosed by increasing temperatures and pressures." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK CYCLE", q:"Zircon Stage 7: what follows continued plate collision?", a:"A mountain range forms and the metamorphic rock is uplifted." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"ROCK CYCLE", q:"Zircon Stage 8: the final stage?", a:"The metamorphic rock erodes; the zircon travels down a river to a beach — ready to begin again." },
+
+  // IGNEOUS
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"Define an igneous rock.", a:"Any crystalline or glassy rock that forms from the cooling of a magma." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"What does magma consist of?", a:"Mostly liquid rock matter, but may also contain mineral crystals and/or a gas phase (dissolved or separate)." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"Why study igneous rocks? Give 3 reasons.", a:"Understanding geological history and volcanic processes; predicting volcanic activity and earthquakes; finding valuable minerals (diamonds, metal ores, tin, copper, lead, niobium, platinides); geothermal energy; agricultural effects." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"What agricultural concern is linked to igneous mineral breakdown?", a:"Fertility and toxicity from breakdown products — e.g. magnesium, iron, arsenic, lead, mercury." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"What is the SiO₂ range of basaltic magma and what elements is it high/low in?", a:"45–55 wt% SiO₂; high in Fe, Mg, Ca; low in K, Na." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"What is the SiO₂ range of andesitic magma?", a:"55–65 wt% SiO₂; intermediate in Fe, Mg, Ca, Na, K." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"What is the SiO₂ range of rhyolitic magma and what elements is it high/low in?", a:"65–75 wt% SiO₂; low in Fe, Mg, Ca; high in K, Na." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"What are the extrusive and intrusive equivalents of basaltic magma?", a:"Basalt (extrusive) and Gabbro (intrusive)." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"What are the extrusive and intrusive equivalents of rhyolitic magma?", a:"Rhyolite (extrusive) and Granite (intrusive)." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"What are the extrusive and intrusive equivalents of andesitic magma?", a:"Andesite (extrusive) and Diorite (intrusive)." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"What do the terms felsic and mafic mean?", a:"Felsic = high silica, light coloured (feldspar + silica). Mafic = low silica, dark, rich in Mg and Fe." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"List the intrusive series from most to least felsic.", a:"Granite → Granodiorite → Diorite → Gabbro → Peridotite." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"What minerals dominate felsic (high silica) rocks?", a:"Alkali feldspar, quartz, muscovite." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"What minerals dominate mafic (low silica) rocks?", a:"Pyroxene and olivine." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"What is a sill?", a:"A horizontal sheet of igneous rock intruded parallel to existing rock layers." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"What is a dyke?", a:"A vertical sheet of igneous rock cutting across existing rock layers." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"What is a laccolith?", a:"A lens-shaped igneous intrusion that domes up overlying rock as magma forces between strata." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"How did Gilbert (1877) describe a laccolith?", a:"As having 'insinuated itself between two strata, and opened for itself a chamber by lifting all the superior beds'." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"Name the two real intrusive examples from the lecture.", a:"San Rafael Swell Basalts, Utah; Black Mesa Bysmalith, Utah." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"Name two real extrusive examples from the lecture.", a:"Sunset Crater, Arizona, USA; Bishop Tuff, California, USA." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGNEOUS", q:"What is the Bishop Tuff?", a:"A compacted volcanic ash (pyroclastic) deposit from a massive ancient eruption in California." },
+
+  // IGNEOUS TEXTURES
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGN TEXTURES", q:"According to Cashman & Marsh (1988), what do igneous textures result from?", a:"A complex and dynamic interplay between crystal nucleation and growth." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGN TEXTURES", q:"What does crystal size in an igneous rock reflect?", a:"The rate of crystallisation — slower cooling = larger crystals." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGN TEXTURES", q:"What texture does obsidian have and why?", a:"Glassy — cooled so rapidly that no crystals had time to form." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGN TEXTURES", q:"What texture does granite have and what does it indicate?", a:"Coarse-crystalline — slow underground cooling allowed large crystals to grow." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGN TEXTURES", q:"What is a porphyritic texture?", a:"Two distinct crystal sizes — large phenocrysts in a finer groundmass — indicating two-stage cooling (slow at depth, then rapid after eruption)." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGN TEXTURES", q:"What are the three igneous textures shown in the lecture?", a:"Glassy (obsidian), coarse-crystalline (granite), porphyritic intrusive rock." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGN TEXTURES", q:"How do pillow basalts form?", a:"Lava erupts underwater and is rapidly quenched, forming rounded pillow shapes. Example: Oamaru, NZ." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"IGN TEXTURES", q:"What is columnar jointing and what causes it?", a:"Regular hexagonal columns in basalt caused by even contraction during cooling. Example: Devil's Postpile, California." },
+
+  // SEDIMENTARY
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"How do sedimentary rocks form?", a:"At or close to Earth's surface via deposition of grains and/or precipitation of minerals from solution." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"What percentage of rocks exposed at Earth's surface are sedimentary?", a:"~75%." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"Give an example of a sedimentary rock type with no modern analogue.", a:"Banded ironstones." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"What is diagenesis?", a:"Physical, chemical and/or biological processes which bring about compaction, cementation, recrystallisation and/or other modifications to an original sediment." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"Distinguish between sediment and sedimentary rock.", a:"Sediment = loose, unconsolidated detritus and chemical precipitate. Sedimentary rock = rock comprised of lithified sediment." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"What are the four categories of sedimentary rocks?", a:"Siliciclastic (terrigeneous/epiclastic), biogenic/biochemical/organic, chemical, volcaniclastic." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"What is another name for siliciclastic sediments?", a:"Terrigeneous or epiclastic deposits." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"Give examples of siliciclastic sedimentary rocks.", a:"Conglomerates, breccias, sandstones, mudrocks." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"Give examples of biogenic/biochemical sedimentary rocks.", a:"Limestones, dolomites, cherts, phosphates, coal, oil shale." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"Give examples of chemical sedimentary rocks.", a:"Evaporites: halite (rock salt), gypsum; ironstones." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"Give examples of volcaniclastic sedimentary rocks.", a:"Ignimbrites, tuffs, hyaloclastites." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"What are clasts, matrix, and cement in a clastic rock?", a:"Clasts = rock fragments. Matrix = finer material between clasts. Cement = chemical precipitate that holds them together." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"What does bioclastic mean?", a:"A rock composed of shell or skeleton fragments from organisms." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"What are the three controlling factors on erosion type and amount?", a:"Climate, local geology (type/hardness/composition), topography." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"What does Hjulstrom's curve show?", a:"The relationship between water velocity and grain size for erosion, transport, and deposition." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"Name the four continental depositional environments.", a:"Fluvial systems, lakes, glacial systems, deserts (aeolian sand seas)." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"Name five shoreline/coastal depositional environments.", a:"Deltas, lagoons, tidal flats, sabkahs (salt flats), beaches and barriers." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"What is a sabkah?", a:"A salt flat — a coastal/shoreline depositional environment." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"What is an epeiric sea?", a:"An inland sea — a type of shallow marine depositional environment." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"What type of sedimentation occurs at bathyal to abyssal depths?", a:"Pelagic, hemipelagic, and turbidite (fine-grained) sedimentation." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"How long and wide is the Mariana Trench?", a:"~2500 km long and 70 km wide." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"What is the maximum depth of the Mariana Trench and where is it measured?", a:"10,994 m (+/- 40 m) at Challenger Deep." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"Define sedimentary facies (Tucker, 1991).", a:"A body of sedimentary rock distinguishable from others by lithology, grain size, texture, sedimentary structures, fossil content, and colour. A product of a particular depositional environment or process." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"Distinguish lithofacies from biofacies.", a:"Lithofacies defined by sedimentary characteristics; biofacies by palaeontological differences." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"What five factors control spatial distribution of sedimentary facies?", a:"Depositional processes, depositional environment, tectonic setting, climate, global sea level position and relative sea level changes." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"Name six sedimentary structures.", a:"Any six from: cross-bedding, ripple marks, flute casts, graded bedding, parallel lamination, load casts, HCS, slump structures, convolute bedding, bioturbation, stromatolites, shrinkage cracks, tool marks." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"SEDIMENTARY", q:"Name three real sedimentary structure examples from the lecture.", a:"Cross-bedded Navajo Sandstones (Utah), Ripple Marks (Moenkopi Formation, Utah), Flute Clasts." },
+
+  // METAMORPHIC
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"METAMORPHIC", q:"Define metamorphism (Yardley, 1989).", a:"The process of change whereby a rock formed in an igneous or sedimentary environment recrystallises in response to new conditions. Most retain parent characteristics (bulk chemistry, bedding) while developing new textures and minerals." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"METAMORPHIC", q:"What are the two principal types of change during metamorphism?", a:"Phase changes (new minerals via chemical reaction) and textural changes (recrystallisation producing new textures, e.g. platy mineral alignment)." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"METAMORPHIC", q:"In what state does all metamorphism occur?", a:"The solid state — the rock is never completely disaggregated (no extensive melting)." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"METAMORPHIC", q:"What original features can metamorphic rocks retain?", a:"Compositional layering of sediments — though often distorted by deformation." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"METAMORPHIC", q:"What is isochemical metamorphism?", a:"Only volatiles (usually H₂O) are added/removed; bulk chemical composition of the new rock remains the same as the parent." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"METAMORPHIC", q:"What is metasomatism?", a:"Chemical change during metamorphism where elements (other than volatiles) are added or removed, changing bulk composition." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"METAMORPHIC", q:"Two causes of metasomatism?", a:"Hot circulating hydrothermal/epithermal fluids; reaction between two layers of contrasting chemical composition at their interface." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"METAMORPHIC", q:"What is regional metamorphism?", a:"Tectonic-scale metamorphism giving rise to large areas of metamorphic rocks, typically in mountain chains with deformation and folding." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"METAMORPHIC", q:"What is burial metamorphism?", a:"A form of regional metamorphism from thickening of a sedimentary/volcano-sedimentary sequence in a subsiding basin. Rocks at the base undergo low-grade metamorphism." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"METAMORPHIC", q:"What is contact/thermal metamorphism?", a:"Metamorphism from temperature increase in host rocks adjacent to igneous intrusions. Very localised in extent." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"METAMORPHIC", q:"Three rock transformations shown in the contact metamorphism diagram?", a:"Shale → Hornfels; Quartz sandstone → Quartzite; Limestone → Marble." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"METAMORPHIC", q:"What is dynamic/cataclastic metamorphism?", a:"Metamorphism along fault planes from enormous energy release during rupture." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"METAMORPHIC", q:"What is hydrothermal metamorphism and at what scales does it operate?", a:"Metamorphism from hot water circulating through rock along fissures/cracks. Local scale (around intrusions) to regional scale (mid-ocean ridges)." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"METAMORPHIC", q:"What economic resource can hydrothermal metamorphism produce? Real example?", a:"Epithermal gold-silver bearing mineral veins. Martha Open Pit Mine and Favona Underground Mine, Waihi, New Zealand." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"METAMORPHIC", q:"What is impact metamorphism? Example?", a:"Metamorphism from a large, high-velocity meteorite impacting a planetary surface. Example: Meteor Crater, Arizona." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"METAMORPHIC", q:"According to Yardley (1989), when does metamorphism occur?", a:"When a rock is subjected to a new chemical or physical environment in which its existing mineral assemblage is no longer the most stable." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"METAMORPHIC", q:"What are the four controlling factors of metamorphism?", a:"Fluid infiltration reacting with rock; changes in temperature; changes in pressure; application of unequal stresses (deformation)." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"METAMORPHIC", q:"Name the metamorphic facies from the P-T diagram (Spear, 1993).", a:"Zeolite, Prehnite-Pumpellyite, Greenschist, Blueschist, Amphibolite, Granulite, Eclogite." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"METAMORPHIC", q:"Two protolith → metamorphic rock examples shown?", a:"Basalt → Eclogite; Shale → Garnet-mica schist." },
+
+  // META TEXTURES
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"What are the four criteria for naming metamorphic rocks?", a:"Protolith, metamorphic mineralogy, rock texture, any appropriate special name." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"Protolith → metamorphic name: clay-rich sediment?", a:"Pelite/pelitic." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"Protolith → metamorphic name: sand sediment?", a:"Psammite/quartzofeldspathic." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"Protolith → metamorphic name: clay-sand sediment?", a:"Semi-pelite." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"Protolith → metamorphic name: quartz sand?", a:"Quartzite." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"Protolith → metamorphic name: marl?", a:"Calc-silicate/calcareous." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"Protolith → metamorphic name: limestone?", a:"Marble." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"Protolith → metamorphic name: basalt?", a:"Metabasite/mafic." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"Protolith → metamorphic name: ironstone?", a:"Meta-ironstone/ferruginous." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"How do you denote the metamorphic equivalent of any rock?", a:"Add 'meta-' as a prefix to the rock name." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"Describe a slate.", a:"Strongly cleaved rock due to orientation of very fine phyllosilicate grains, producing a pervasive cleavage through the rock." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"How does phyllite differ from slate?", a:"Similar but slightly coarser-grained with less perfectly planar cleavage planes." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"What defines a schist?", a:"Parallel alignment of moderately coarse grains (visible with naked eye) producing schistosity." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"What defines a gneiss?", a:"Coarse grained (>3 mm) and foliated — displays schistosity or compositional layering (gneissic banding). Orthogneiss = igneous parent; paragneiss = sedimentary parent." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"What is a mylonite?", a:"Fine-grained rocks produced in zones of intense ductile deformation, displaying a roughly planar fabric." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"What causes gneissic banding?", a:"Overburden pressure horizontal to Earth's surface with increasing burial, causing crystals to realign into alternating dark and light bands." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"What is the Lewisian Gneiss notable for?", a:"It is the oldest rock in the UK." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"What is slaty cleavage and what causes it?", a:"A planar structure from preferred alignment of mica crystals. Useful for making roof tiles." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"What does degree of schistosity reflect?", a:"The degree (amount) of metamorphism." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"What oriented fabric forms in response to compressive forces?", a:"An oriented fabric largely defined by micas grows perpendicular to the direction of compression (shortening)." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"What gem minerals are found in metamorphic rocks?", a:"Corundum (ruby, sapphire), garnets." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"META TEXTURES", q:"Name three metamorphic building/facing stones.", a:"Building: quartzites, gneisses, slates. Facing: marbles, serpentinites, schists." },
+
+  // GEO TIME
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"GEO TIME", q:"What organisation publishes the International Chronostratigraphic Chart?", a:"The International Commission on Stratigraphy (ICS/IUGS). Version shown: 2023/09." },
+  { week:1, lecture:"Lec 6 · Rock Cycle", topic:"GEO TIME", q:"What is Siccar Point and why is it significant?", a:"A famous unconformity in Scotland where two rock sequences of very different ages meet — illustrates stratigraphic and cross-cutting relationships." },
+
+  // ══════════════════════════════════════════════════════
+  // WEEK 6 — INTRO TO THE OCEAN (Dr Lavenia Ratnarajah)
+  // ══════════════════════════════════════════════════════
+
+  // OVERVIEW
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"OVERVIEW", q:"What is oceanography?", a:"The study of the physical, chemical, and biological features of the ocean." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"OVERVIEW", q:"What scientific disciplines does oceanography draw on?", a:"Maths, physics, chemistry, biology, and geology." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"OVERVIEW", q:"What geographic scales does oceanography cover?", a:"Polar regions (Arctic/Antarctic), tropical waters, ocean basins, global ocean." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"OVERVIEW", q:"What working styles do oceanographers use?", a:"Sea-going, desk-based, lab experiments, computational." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"OVERVIEW", q:"What is the main driver of the ongoing CO₂ rise?", a:"Fossil fuel burning and land use change (Friedlingstein et al., 2023)." },
+
+  // SEA ICE
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"SEA ICE", q:"What record was set on 19 February 2023 for Antarctic sea ice?", a:"A new record minimum — 36% below the 1979–2022 average for the summer minimum." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"SEA ICE", q:"How much sea ice was still missing at the 2023 Antarctic winter maximum (10 September)?", a:"1.5 million km² less than normal." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"SEA ICE", q:"Historically, how did Arctic and Antarctic sea ice trends differ?", a:"While the Arctic lost sea ice, the Antarctic did not — showing gains in some areas and losses in others." },
+
+  // OCEAN LAYERS & TEMPERATURE
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"OCEAN LAYERS", q:"Why is the ocean highly stratified?", a:"Different parts have different temperatures and salinity, which affects water density." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"OCEAN LAYERS", q:"What is the general range of ocean temperatures?", a:"About -2°C to 30°C." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"OCEAN LAYERS", q:"Why is surface water warmest and least dense?", a:"It is warmed by the sun; sun's rays penetrate less than 1000 m. Warmer water is less dense so it stays at the surface." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"OCEAN LAYERS", q:"What is the mixed layer?", a:"The upper 100–200 m where temperature is fairly constant, mixed by surface winds, waves, and currents." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"OCEAN LAYERS", q:"What is the thermocline?", a:"A zone of rapid temperature decline over a narrow depth increase, below the mixed layer. Deep ocean below is ~2°C." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"OCEAN LAYERS", q:"What is the deep ocean temperature below the thermocline?", a:"Fairly constant at about 2°C, continuing to the bottom." },
+
+  // DENSITY
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"DENSITY", q:"What is density?", a:"The amount of mass per unit volume (e.g. grams per cubic cm, g/cm³)." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"DENSITY", q:"What is the density of fresh water at 4°C?", a:"1 g/cm³." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"DENSITY", q:"What is the density range of surface seawater?", a:"Between 1.02 and 1.03 g/cm³." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"DENSITY", q:"What two factors increase seawater density?", a:"Reducing temperature or increasing salinity." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"DENSITY", q:"Which factor has the greatest effect on seawater density?", a:"Temperature — density profiles usually mirror images of temperature profiles." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"DENSITY", q:"What is the pycnocline?", a:"A region of rapidly increasing density with increasing depth, below the surface mixed layer." },
+
+  // LIGHT
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"LIGHT", q:"What is the wavelength range of visible light reaching Earth?", a:"About 400–700 nm." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"LIGHT", q:"What does ROYGBIV stand for in the visible spectrum?", a:"Red, Orange, Yellow, Green, Blue, Indigo, Violet." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"LIGHT", q:"Which wavelengths are shortest in the visible spectrum?", a:"Violet and ultraviolet end (shortest). Longest are red and infrared." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"LIGHT", q:"What percentage of solar energy remains at 1 m depth?", a:"45%." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"LIGHT", q:"What percentage of light remains at 10 m depth?", a:"16%." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"LIGHT", q:"What percentage of light remains at 100 m depth?", a:"1%." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"LIGHT", q:"At what depth does no light penetrate?", a:"Beyond 1000 m." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"LIGHT", q:"What is the euphotic zone?", a:"The sunlit surface layer of the ocean where light is sufficient for photosynthesis — related to mixed layer depth." },
+
+  // SALINITY
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"SALINITY", q:"How is salinity of seawater expressed?", a:"Grams of salt per kilogram (1000 g) of seawater — parts per thousand (ppt)." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"SALINITY", q:"What is the average salinity of the ocean?", a:"About 35 ppt (35 g of salt per 1 kg seawater)." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"SALINITY", q:"What two ions make up over 85% of ocean ions?", a:"Chloride and sodium — the components of table salt." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"SALINITY", q:"What is the salinity range in the open ocean?", a:"33–37 ppt, but can vary significantly by location." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"SALINITY", q:"What four processes cause most differences in salinity?", a:"Variations in evaporation, precipitation, runoff, and ice cover." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"SALINITY", q:"Where are the most pronounced salinity differences found and why?", a:"In surface waters — because evaporation, precipitation, runoff, and ice cover all occur at the surface, not at depth." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"SALINITY", q:"How does salinity behave in deeper water?", a:"It remains relatively uniform." },
+
+  // CHEMICAL OCEANOGRAPHY
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"CHEM OCEAN", q:"What does chemical oceanography study?", a:"The chemical composition of seawater — elements and nutrients dissolved in the ocean (references: Browning & Moore 2023; Twining & Baines 2013)." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"CHEM OCEAN", q:"What does the 'ocean is a soup' analogy refer to?", a:"The ocean contains a wide range of dissolved elements and nutrients that organisms (especially phytoplankton) need to grow." },
+
+  // BIOLOGICAL OCEANOGRAPHY
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"BIO OCEAN", q:"What do phytoplankton need to grow?", a:"A range of nutrients; availability of certain nutrients can limit phytoplankton growth depending on location." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"BIO OCEAN", q:"What is the significance of nutrient limitation for phytoplankton?", a:"In some ocean regions, a specific nutrient (e.g. iron) limits phytoplankton growth even if other nutrients are available." },
+
+  // BIOGEOCHEMICAL OCEANOGRAPHY
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"BIOGEO", q:"What is biogeochemical oceanography?", a:"The study of how biological, geological, and chemical processes interact to cycle elements (especially carbon) through the ocean." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"BIOGEO", q:"How long can carbon be stored out of contact with the atmosphere in the ocean?", a:"Decades to millennia." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"BIOGEO", q:"What is the biological carbon pump?", a:"A process by which carbon is transported from the surface ocean to the deep ocean via sinking biological material (phytoplankton, faecal pellets, etc.)." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"BIOGEO", q:"What are particle injection pumps (PIPs)?", a:"Different mechanisms by which carbon particles are transported into the deep ocean (includes biological pump, migrant pump, eddy subduction pump, gravitational pump)." },
+
+  // RESEARCH Q1
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"What was Research Question 1 about?", a:"Resource competition in the biological carbon pump — specifically whether bacteria competed with phytoplankton for iron (SCAR Fellowship 2016–2017). Finding: A & H bacteria had highest iron uptake rate (Tortell et al. 1999)." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"Which bacteria had the highest iron uptake rate in Q1 research?", a:"A & H bacteria (Tortell et al. 1999)." },
+
+  // RESEARCH Q2
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"What was Research Question 2 about?", a:"Zooplankton iron and carbon cycling — using ICP-MS for trace metal content, ZooScan for community structure, Flash Elemental Analyzer for carbon content. Method: phytoplankton culturing + grazing experiments at krill aquarium (AAD)." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"What three analytical methods were used in Q2 (zooplankton cycling)?", a:"ICP-MS (trace metal/iron content), ZooScan (community structure), Flash Elemental Analyzer (carbon content)." },
+
+  // RESEARCH Q3
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"What is the mesopelagic migrant pump?", a:"Carbon export driven by organisms (e.g. krill) that migrate daily between the epipelagic (<200 m) and mesopelagic (>200 m), releasing carbon at depth." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"What is diurnal vertical migration (DVM)?", a:"The daily movement of organisms (e.g. krill) between surface and deep waters." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"What percentage of krill migrated to a maximum depth of 371 m in winter?", a:"32%." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"What percentage of krill migrated and to what average depth in summer?", a:"5.4% to an average depth of 98 m." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"What percentage of krill migrated to 370 m in autumn and spring?", a:"28% in autumn; 19% in spring." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"When was the krill mesopelagic migrant pump most efficient?", a:"In winter — when food is low." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"What percentage of egested POC was lost to attenuation by sinking fecal pellets?", a:"23–60% of egested POC." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"What was the maximum contribution of krill DVM to total krill POC flux?", a:"Never more than 6%." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"What instrument was deployed for Q3 (mesopelagic migrant pump)?", a:"An upward-facing seafloor lander; acoustic backscatter converted to numeric and biomass density; a 1D model built to determine fraction of carbon exported." },
+
+  // RESEARCH Q4
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"What was Research Question 4 about?", a:"Gravitational and eddy subduction pumps — using Argo floats in the global ocean to study particle export." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"What are Argo floats?", a:"Autonomous ocean floats deployed globally to measure ocean properties (temperature, salinity, biogeochemistry) at depth." },
+
+  // ── EXTRA CARDS TO REACH 100 ──────────────────────────
+
+  // OVERVIEW (extra)
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"OVERVIEW", q:"Who delivered the oceanography lecture?", a:"Dr Lavenia Ratnarajah, Lecturer in Climate Science." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"OVERVIEW", q:"What are the four broad fields covered in the oceanography lecture structure?", a:"The carbon problem / climate change; physical oceanography (layers, temperature, density, light, salinity); chemical and biological oceanography; biogeochemical oceanography and research." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"OVERVIEW", q:"What does it mean that the ocean is 'highly stratified'?", a:"Different ocean layers have distinct properties (temperature, salinity, density) that keep them separated rather than fully mixing." },
+
+  // OCEAN LAYERS (extra)
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"OCEAN LAYERS", q:"Why does warmer surface water stay at the surface?", a:"Warmer water is less dense than cold deep water, so it floats on top where it can be warmed further by the sun." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"OCEAN LAYERS", q:"What causes the mixed layer?", a:"Surface winds, waves, and currents mix the upper water and distribute heat throughout the upper 100–200 m." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"OCEAN LAYERS", q:"What temperature profile was shown for the Atlantic Ocean?", a:"A cross-section from the coast of Florida to the coast of Africa showing the thermocline structure (Paul Webb, 2023)." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"OCEAN LAYERS", q:"What are the three main depth zones related to temperature in the ocean?", a:"Mixed layer (upper 100–200 m, fairly constant temperature), thermocline (rapid temperature drop), and deep ocean (~2°C, fairly constant)." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"OCEAN LAYERS", q:"Why is the euphotic depth important in relation to the mixed layer?", a:"Primary production (photosynthesis) can only occur within the euphotic zone; the mixed layer supplies nutrients to this zone." },
+
+  // DENSITY (extra)
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"DENSITY", q:"Why do density profiles typically mirror temperature profiles?", a:"Temperature has the greatest effect on density — as temperature decreases with depth, density increases correspondingly." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"DENSITY", q:"What is the halocline?", a:"A zone of rapidly changing salinity with depth — analogous to the thermocline but for salinity." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"DENSITY", q:"How does increasing salinity affect seawater density?", a:"Increasing salinity increases density — more dissolved salts add mass per unit volume." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"DENSITY", q:"At what temperature is the density of fresh water at its maximum?", a:"4°C (density = 1 g/cm³)." },
+
+  // LIGHT (extra)
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"LIGHT", q:"What term describes the rapid decrease in light with ocean depth?", a:"Attenuation — water is very effective at absorbing incoming light." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"LIGHT", q:"Do all wavelengths of light attenuate at the same rate in the ocean?", a:"No — the ocean absorbs different wavelengths at different rates. Red wavelengths are absorbed soonest; blue/violet penetrate deepest." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"LIGHT", q:"Why does the ocean appear blue?", a:"Red wavelengths are absorbed near the surface; blue wavelengths penetrate deepest and are scattered back." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"LIGHT", q:"What is the photic zone?", a:"The layer of the ocean that receives enough sunlight for photosynthesis — same as the euphotic zone, extending to ~200 m maximum." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"LIGHT", q:"What is the aphotic zone?", a:"The part of the ocean below 1000 m where no light penetrates at all." },
+
+  // SALINITY (extra)
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"SALINITY", q:"Why does salinity vary latitudinally?", a:"Different rates of evaporation, precipitation, and freshwater input at different latitudes change surface salinity." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"SALINITY", q:"How does ice cover affect surface salinity?", a:"When sea ice forms, salt is excluded (brine rejection), increasing salinity of surrounding water. When ice melts, it releases fresh water, lowering salinity." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"SALINITY", q:"Why is seawater salty?", a:"Chloride and sodium ions (table salt) make up over 85% of the dissolved ions, derived from weathering of rocks and volcanic activity over geological time." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"SALINITY", q:"What is a haloclime and where is it most pronounced?", a:"A layer of changing salinity with depth — most pronounced in surface waters where evaporation, precipitation, runoff and ice cover occur." },
+
+  // CHEM OCEAN (extra)
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"CHEM OCEAN", q:"What elements are particularly important in chemical oceanography for phytoplankton growth?", a:"Macro-nutrients (nitrate, phosphate, silicate) and micro-nutrients (especially iron) — iron is often the limiting nutrient in Southern Ocean." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"CHEM OCEAN", q:"What is a limiting nutrient?", a:"A nutrient whose scarcity limits the growth rate of an organism even when all other nutrients are available." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"CHEM OCEAN", q:"Why is iron particularly important in the Southern Ocean?", a:"It is present in very low concentrations (a trace metal) and limits phytoplankton growth — making it the key limiting nutrient in that region." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"CHEM OCEAN", q:"What references were cited for chemical oceanography in the lecture?", a:"Browning and Moore (2023); Twining and Baines (2013)." },
+
+  // BIO OCEAN (extra)
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"BIO OCEAN", q:"What is phytoplankton?", a:"Microscopic photosynthetic organisms in the ocean — the base of the marine food web and a key driver of the biological carbon pump." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"BIO OCEAN", q:"What is zooplankton?", a:"Small aquatic animals that feed on phytoplankton and other organisms — important for cycling carbon and nutrients in the ocean." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"BIO OCEAN", q:"What are the four ways oceanographers study the ocean?", a:"Sea-going (field work), desk-based (analysis/modelling), lab experiments, computational modelling." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"BIO OCEAN", q:"What is krill and why is it ecologically significant?", a:"A small crustacean zooplankton (e.g. Antarctic krill) that feeds on phytoplankton, undergoes DVM, and plays a major role in carbon export and food web structure." },
+
+  // BIOGEO (extra)
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"BIOGEO", q:"What is POC?", a:"Particulate Organic Carbon — organic carbon in particle form (e.g. dead phytoplankton, faecal pellets) that can sink and export carbon to depth." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"BIOGEO", q:"What is the epipelagic zone?", a:"The upper ocean layer (<200 m) where light is available — the sunlit, productive surface zone." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"BIOGEO", q:"What is the mesopelagic zone?", a:"The twilight zone of the ocean, between 200 m and 1000 m depth — where many migrating organisms spend their daytime hours." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"BIOGEO", q:"What is the gravitational pump in carbon export?", a:"Passive sinking of organic particles (dead phytoplankton, faecal pellets) from the surface to depth under gravity." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"BIOGEO", q:"What is the eddy subduction pump?", a:"A mechanism where ocean eddies (rotating currents) subduct surface water and associated carbon-rich particles to depth." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"BIOGEO", q:"Why does carbon storage in the deep ocean matter for climate?", a:"Carbon stored at depth is removed from contact with the atmosphere for decades to millennia, reducing atmospheric CO₂ levels." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"BIOGEO", q:"What does 'attenuation' of POC mean in the context of carbon export?", a:"The reduction in sinking carbon flux with depth as particles are remineralised or consumed before reaching the seafloor." },
+
+  // SEA ICE (extra)
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"SEA ICE", q:"What reference is cited for recent sea ice change data?", a:"Abram et al. 2025; also graph from Dr Ed Doddridge." },
+
+  // RESEARCH (extra)
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"What does SCAR stand for and when was the fellowship?", a:"Scientific Committee on Antarctic Research — fellowship held 2016–2017." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"What was the key finding of Q1 regarding bacteria and iron?", a:"A & H bacteria had the highest iron uptake rate, suggesting bacteria compete with phytoplankton for iron (Tortell et al. 1999)." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"What facility were zooplankton grazing experiments conducted at for Q2?", a:"The krill aquarium at the Australian Antarctic Division (AAD)." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"What did the Q2 method involve for phytoplankton?", a:"Phytoplankton culturing under different temperature and iron (Fe) availability treatments." },
+  { week:6, lecture:"Lec 6 · Oceanography", topic:"RESEARCH", q:"What overarching question ties the four research questions together?", a:"Of all the particle injection pumps (PIPs), which dominates carbon export on an annual cycle?" },
+
+  // ══════════════════════════════════════════════════════
+  // WEEK 7 — LECTURE 7: CLIMATE PAST, PRESENT AND FUTURE
+  // Lecturer: Dr Rosemary Willatt  |  100 cards
+  // ══════════════════════════════════════════════════════
+
+  // EARTH SYSTEMS (6)
+  { week:7, lecture:"Lec 7 · Climate", topic:"EARTH SYSTEMS", q:"Name the four major spheres of the Earth system.", a:"Atmosphere, Ocean, Land (biosphere), and Cryosphere." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"EARTH SYSTEMS", q:"What does Earth system science explore?", a:"The connections among all parts of the planet — atmosphere, oceans, land, vegetation, and ice (US Dept of Energy)." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"EARTH SYSTEMS", q:"Give three cryosphere components listed in the Earth system diagram.", a:"Ice sheets and glaciers, snowpack, lake and river ice, permafrost (any three)." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"EARTH SYSTEMS", q:"Give three ocean processes listed in the Earth system diagram.", a:"Deep ocean circulation, sea ice, ocean currents and eddies, salinity and biogeochemistry (any three)." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"EARTH SYSTEMS", q:"Give two examples of named cross-sphere interactions shown in the NASA Earth systems diagram.", a:"Atmosphere–ice interaction; vegetation–soil interaction; atmosphere–biosphere interaction (any two)." },
+
+  // ATMOSPHERE STRUCTURE (8)
+  { week:7, lecture:"Lec 7 · Climate", topic:"ATMOSPHERE", q:"What is the total mass of Earth's atmosphere?", a:"About 5.5 quadrillion tons — roughly one millionth of Earth's mass." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ATMOSPHERE", q:"List the five atmospheric layers from surface upward.", a:"Troposphere → Stratosphere → Mesosphere → Thermosphere → Exosphere." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ATMOSPHERE", q:"At what altitude range does the tropopause occur?", a:"~8–16 km altitude." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ATMOSPHERE", q:"At what altitude does the stratopause occur?", a:"~50 km." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ATMOSPHERE", q:"At what altitude does the mesopause occur?", a:"~85 km." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ATMOSPHERE", q:"Where is the ozone maximum found in the atmosphere?", a:"In the stratosphere, roughly 20–30 km altitude." },
+
+  // ENERGY SOURCES (6)
+  { week:7, lecture:"Lec 7 · Climate", topic:"ENERGY SOURCES", q:"Who identified 13 energy sources for Earth's atmosphere, reviewed by Kren et al. (2017)?", a:"Sellers (1965)." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ENERGY SOURCES", q:"List six of the thirteen energy sources for Earth's atmosphere from Sellers (1965).", a:"Solar irradiance; Earth's interior heat flux; infrared/reflected radiation from the Moon; fossil fuel combustion; magnetic storm dissipation; lightning discharge energy (any six)." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ENERGY SOURCES", q:"What fraction of solar energy is absorbed by the Earth system (Wild et al., 2013)?", a:"0.71 (71%)." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ENERGY SOURCES", q:"By what factor does absorbed solar energy exceed all other external energy sources combined (Kren et al., 2017)?", a:"Approximately 2700 times." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ENERGY SOURCES", q:"If the Sun did not exist, what would Earth's radiative equilibrium blackbody temperature be?", a:"Approximately 36 K (Kren et al., 2017)." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ENERGY SOURCES", q:"Why is Venus the hottest planet in the solar system despite not being closest to the Sun?", a:"Its thick atmosphere of greenhouse gases (and sulphuric acid clouds) creates an extreme greenhouse effect." },
+
+  // SOLAR IRRADIANCE & LATITUDE (6)
+  { week:7, lecture:"Lec 7 · Climate", topic:"SOLAR IRRADIANCE", q:"What is the global average solar irradiance at the top of the atmosphere?", a:"1367 W/m²." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"SOLAR IRRADIANCE", q:"What is the difference between solar irradiance and insolation?", a:"Irradiance = power per unit area (W/m²); insolation = irradiance integrated over time (total energy received)." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"SOLAR IRRADIANCE", q:"How does latitude affect the solar energy received at the surface?", a:"At higher latitudes the angle of incidence is lower, spreading energy over a larger area and increasing atmospheric path length — reducing irradiance." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"SOLAR IRRADIANCE", q:"How does equatorial peak solar energy vary seasonally compared to 60° N/S?", a:"At the equator it is nearly constant year-round; at 60° N/S the seasonal variation is extreme." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"SOLAR IRRADIANCE", q:"Besides latitude, what three factors affect energy reaching a surface point?", a:"Time of day, weather (cloud cover), and landscape (topography/surface albedo)." },
+
+  // ORBIT & SEASONS (6)
+  { week:7, lecture:"Lec 7 · Climate", topic:"ORBIT & SEASONS", q:"What causes Earth's seasons?", a:"Earth's axial tilt (obliquity) — currently ~23°." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ORBIT & SEASONS", q:"What is perihelion, when does it occur, and what is the distance?", a:"Earth's closest approach to the Sun — ~January 3, at ~147.1–147.3 million km." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ORBIT & SEASONS", q:"What is aphelion, when does it occur, and what is the distance?", a:"Earth's farthest point from the Sun — ~July 4, at ~152.1 million km." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ORBIT & SEASONS", q:"How does solar intensity vary with Earth-Sun distance?", a:"Inversely proportional to the square of the distance: I ∝ d⁻²." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ORBIT & SEASONS", q:"By what percentage is solar intensity weaker/stronger at Northern Hemisphere summer vs winter?", a:"~3.5% weaker in NH summer (aphelion); ~3.5% stronger in NH winter (perihelion)." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ORBIT & SEASONS", q:"Approximately when do the solstices and equinoxes occur?", a:"June solstice ~June 21/22; December solstice ~Dec 21/22; March equinox ~Mar 20/21; September equinox ~Sep 22/23." },
+
+  // WEATHER & CLIMATE (4)
+  { week:7, lecture:"Lec 7 · Climate", topic:"WEATHER & CLIMATE", q:"What is the key distinction between weather and climate?", a:"Time — climate is defined over usually >30 years; weather is short-term atmospheric conditions." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"WEATHER & CLIMATE", q:"How do satellites contribute to the climate record?", a:"Satellites provide weather observations; the continuity of satellite data over time builds a long-term climate record." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"WEATHER & CLIMATE", q:"What is geopotential height?", a:"The height of a surface of constant pressure — used to map pressure systems and atmospheric flow aloft." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"WEATHER & CLIMATE", q:"What does an ECMWF 500 hPa geopotential height chart show?", a:"The altitude at which atmospheric pressure equals 500 hPa — high contour values indicate warm/high-pressure regions; low values indicate cold troughs." },
+
+  // ATMOSPHERIC CIRCULATION (9)
+  { week:7, lecture:"Lec 7 · Climate", topic:"CIRCULATION", q:"What would circulation look like on a non-rotating Earth with no oceans or mountains?", a:"A single Hadley-type cell per hemisphere — warm equatorial air rises, moves poleward aloft, sinks at poles, returns at surface." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"CIRCULATION", q:"Why does pressure differ between the tropics and extra-tropics at altitude?", a:"The warmer tropics heat air more, causing expansion and higher pressure aloft; this pressure gradient drives poleward flow." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"CIRCULATION", q:"Name the three pairs of atmospheric circulation cells.", a:"Hadley cells (0–30°), Ferrel cells (30–60°), Polar cells (60–90°)." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"CIRCULATION", q:"What surface winds are produced by the Hadley cell?", a:"Trade winds — NE trade winds in the Northern Hemisphere, SE trade winds in the Southern Hemisphere." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"CIRCULATION", q:"What surface winds are produced in the Ferrel cell region?", a:"Westerlies — mid-latitude winds blowing broadly from west to east." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"CIRCULATION", q:"What is the Equatorial Low, and what weather is associated with it?", a:"A belt of low pressure where Hadley cell surface air converges and rises; associated with heavy rainfall and cloud formation." },
+
+  // CORIOLIS EFFECT (5)
+  { week:7, lecture:"Lec 7 · Climate", topic:"CORIOLIS", q:"Define the Coriolis effect.", a:"The apparent curving of paths of objects or fluids due to Earth's rotation — deflects right in NH, left in SH." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"CORIOLIS", q:"Where is the Coriolis effect maximum, and where is it zero?", a:"Maximum at the poles; zero at the equator." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"CORIOLIS", q:"Write the Coriolis force equation and define each term.", a:"Fc = 2 × V × ω × sin(φ): Fc = Coriolis force, V = wind velocity, ω = Earth's angular velocity, φ = latitude." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"CORIOLIS", q:"What happens on a rotating Earth (rotating 15°/hour) to a projectile fired from the North Pole toward the equator?", a:"It appears deflected to the right of its intended path by ~15° per hour of travel." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"CORIOLIS", q:"What happens to Coriolis deflection in the Southern Hemisphere compared to the Northern Hemisphere?", a:"Deflection is to the left in the Southern Hemisphere (opposite to the Northern Hemisphere's rightward deflection)." },
+
+  // EL NIÑO / ENSO (7)
+  { week:7, lecture:"Lec 7 · Climate", topic:"ENSO", q:"What is the thermocline?", a:"The transition layer between cooler deep water below and warmer mixed surface water above." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ENSO", q:"How frequently does El Niño occur?", a:"Approximately every 2–7 years." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ENSO", q:"Describe normal Pacific Ocean conditions (non-ENSO).", a:"Strong trade winds push warm water westward toward Indonesia; cold upwelling occurs off South America; rainfall concentrated over the western Pacific." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ENSO", q:"What happens to trade winds and upwelling during El Niño?", a:"Trade winds weaken; less warm water moves west; upwelling off South America is reduced or reversed (downwelling)." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ENSO", q:"How does the thermocline change during El Niño?", a:"It deepens in the eastern Pacific (less cold water brought up) and becomes shallower in the western Pacific — the normal tilt flattens." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ENSO", q:"Give three climatic effects of El Niño.", a:"Drought in Indonesia/Australia; warming and reduced fishing off South America; increased likelihood of a cold winter in the UK." },
+
+  // GREENHOUSE GASES (8)
+  { week:7, lecture:"Lec 7 · Climate", topic:"GREENHOUSE GASES", q:"What record CO₂ level was measured at Mauna Loa in May 2023?", a:"424 ppm — a new record (NOAA Global Monitoring Lab)." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"GREENHOUSE GASES", q:"What percentage of global manmade GHG emissions is CO₂ (2015 data)?", a:"76%." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"GREENHOUSE GASES", q:"What percentage is methane (CH₄) and nitrous oxide (N₂O) respectively (2015)?", a:"Methane 16%; Nitrous oxide 6%." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"GREENHOUSE GASES", q:"What is the Montreal Protocol and what effect did it have on CFC levels?", a:"An international treaty to phase out ozone-depleting substances (CFCs); CFC-11 and CFC-12 levels peaked and declined after its adoption." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"GREENHOUSE GASES", q:"What is the average incoming solar radiation at the top of the atmosphere?", a:"340 W/m² (Loeb et al. 2009; Trenberth et al. 2009)." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"GREENHOUSE GASES", q:"How do greenhouse gases cause warming?", a:"They absorb longwave (infrared) radiation emitted by the surface and re-emit it in all directions, including back toward the surface (back radiation), trapping heat." },
+
+  // ENERGY BUDGET (7)
+  { week:7, lecture:"Lec 7 · Climate", topic:"ENERGY BUDGET", q:"How much solar radiation (W/m²) is reflected by clouds and atmosphere?", a:"77.0 W/m²." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ENERGY BUDGET", q:"How much solar radiation is absorbed by the atmosphere and by the surface respectively?", a:"Atmosphere: 77.1 W/m²; Surface: 163.3 W/m²." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ENERGY BUDGET", q:"How much longwave radiation is emitted by the surface?", a:"398.2 W/m²." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ENERGY BUDGET", q:"What is back radiation and what value is given in the NASA budget?", a:"Longwave radiation re-emitted by greenhouse gases back to the surface — 340.3 W/m²." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ENERGY BUDGET", q:"What is the net absorbed radiation at the surface in the NASA energy budget?", a:"0.6 W/m² — a small imbalance driving ongoing warming." },
+
+  // FEEDBACKS & ARCTIC AMPLIFICATION (8)
+  { week:7, lecture:"Lec 7 · Climate", topic:"FEEDBACKS", q:"What is ice-albedo feedback?", a:"Ice and snow reflect more radiation than land or ocean (higher albedo); as ice melts, darker surfaces absorb more, warming further — a positive feedback." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"FEEDBACKS", q:"What is ice-elevation feedback?", a:"As ice sheets grow higher, air temperature drops (lapse rate ~7°C/km), reducing melt and promoting further ice growth — a positive feedback for glaciation." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"FEEDBACKS", q:"What is the atmospheric lapse rate used in the lecture?", a:"~7°C per km altitude gain." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"FEEDBACKS", q:"According to Rantanen et al. (2022), how much faster has the Arctic warmed than the global average since 1979?", a:"Nearly four times faster." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"FEEDBACKS", q:"What are the approximate specific heat capacities of water and land?", a:"Water ~4 J/g°C; Land ~1 J/g°C." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"FEEDBACKS", q:"Why does the Northern Hemisphere experience greater seasonal temperature variation than the Southern Hemisphere?", a:"The NH has more land, which has lower heat capacity than ocean, so it warms and cools more rapidly over seasons." },
+
+  // SOLAR CYCLE (4)
+  { week:7, lecture:"Lec 7 · Climate", topic:"SOLAR CYCLE", q:"What are sunspots and when are they most numerous?", a:"Dark magnetically-intense regions on the Sun's photosphere — most numerous at solar maximum." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"SOLAR CYCLE", q:"What spacecraft imaged solar cycle 23, and in which year was activity at maximum?", a:"NASA's SOHO spacecraft (ESA & NASA) — maximum activity in 2001." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"SOLAR CYCLE", q:"What is the Faint Young Sun Paradox?", a:"Despite the early Sun being ~30% dimmer ~4 billion years ago, Earth remained habitable — implying a much stronger greenhouse effect in early Earth history." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"SOLAR CYCLE", q:"What is the current Earth-Sun distance in solar radii?", a:"~214 solar radii." },
+
+  // PALAEOCLIMATE PROXIES (12)
+  { week:7, lecture:"Lec 7 · Climate", topic:"PROXIES", q:"Define a paleoclimate proxy.", a:"Physical, chemical, or biological material preserved in the geological record that correlates with past climate or environmental conditions and can reconstruct past climates." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"PROXIES", q:"List six types of paleoclimate proxy and their approximate time-span reach.", a:"Instruments (~1750 AD); boreholes (~1500 AD); historical records (~2000 yr); tree rings (~8000 yr); ice cores (~500,000 yr); ocean sediments (~100+ Myr)." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"PROXIES", q:"What does a narrow tree ring indicate vs. a wide tree ring?", a:"Narrow = poor growth year (too dry or cold); wide = favourable growth year." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"PROXIES", q:"How can dendrochronology extend beyond the lifespan of a single living tree?", a:"By overlapping ring patterns ('barcode matching') from progressively older trees — including dead and archaeological wood — to build a composite record." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"PROXIES", q:"How old was the giant sequoia at the Natural History Museum when felled in 1893, and how tall?", a:"1,300 years old and 101 metres tall." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"PROXIES", q:"What is the EPICA Dome C ice core and how far back does it record?", a:"An Antarctic ice core drilled to 3623 m at Vostok Station — records climate over ~800,000 years." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"PROXIES", q:"How does δD (deuterium) in an ice core serve as a temperature proxy?", a:"Warmer evaporation temperatures preferentially incorporate heavier water (D); higher δD in ice = warmer past temperatures." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"PROXIES", q:"Name six materials studied within sediment cores for paleoclimate reconstruction.", a:"Pollen, plant remains, microfossils, algae, charcoal, elemental composition and stable isotopes." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"PROXIES", q:"When did systematic direct climate observations begin and what is their coverage limitation?", a:"Mid-18th century; coverage is poor especially outside Europe and the USA (Smith et al., 2019)." },
+
+
+  // MILANKOVITCH CYCLES (5)
+  { week:7, lecture:"Lec 7 · Climate", topic:"MILANKOVITCH", q:"What are Milankovitch cycles?", a:"Periodic changes in Earth's orbital parameters — eccentricity, obliquity, and precession — that alter solar energy distribution, driving glacial-interglacial cycles." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"MILANKOVITCH", q:"What are the periodicities of precession, obliquity, and eccentricity?", a:"Precession ~23,000 yr; obliquity ~41,000 yr; eccentricity ~100,000 yr and ~413,000 yr." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"MILANKOVITCH", q:"What range does Earth's axial tilt (obliquity) vary over?", a:"Between ~22° and ~24.5° over a ~41,000-year cycle." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"MILANKOVITCH", q:"What is precession and what does it affect?", a:"The wobble of Earth's rotational axis over ~23,000 years — changes which hemisphere is closest to the Sun at solstice, altering seasonal contrast." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"MILANKOVITCH", q:"When was the Last Glacial Maximum (LGM) and where did ice extend?", a:"~20,000 years ago; ice covered much of North America, Scandinavia, and parts of Eurasia." },
+
+  // TECTONICS & CLIMATE (4)
+  { week:7, lecture:"Lec 7 · Climate", topic:"TECTONICS & CLIMATE", q:"How does continent position at low latitudes affect atmospheric CO₂ on geological timescales?", a:"Higher rainfall and temperature at low latitudes accelerate silicate weathering, drawing down atmospheric CO₂." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"TECTONICS & CLIMATE", q:"How does high-latitude continental position promote glaciation?", a:"Lower insolation at high latitudes allows ice sheets to form on land, triggering ice-albedo feedback." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"TECTONICS & CLIMATE", q:"How did ocean gateway opening affect Antarctica's climate?", a:"Opening of gateways (e.g. Drake Passage) allowed the Antarctic Circumpolar Current to develop, thermally isolating Antarctica and enabling glaciation (Cretaceous to present transition)." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"TECTONICS & CLIMATE", q:"How do volcanoes influence long-term climate?", a:"Volcanoes release CO₂, contributing to greenhouse warming on geological timescales during periods of high volcanic activity." },
+
+  // IPCC & FUTURE CLIMATE (8)
+  { week:7, lecture:"Lec 7 · Climate", topic:"IPCC", q:"What is the IPCC and what is its purpose?", a:"Intergovernmental Panel on Climate Change — the UN body that provides policymakers with scientific assessments on climate change, its risks, and adaptation/mitigation options." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"IPCC", q:"What key IPCC AR6 statement is highlighted in the lecture?", a:"'It is unequivocal that human influence has warmed the atmosphere, ocean and land. Widespread and rapid changes in the atmosphere, ocean, cryosphere and biosphere have occurred.'" },
+  { week:7, lecture:"Lec 7 · Climate", topic:"IPCC", q:"What do IPCC attribution studies show about the role of natural vs. human factors in recent warming?", a:"Simulations using only natural factors (solar and volcanic) cannot reproduce observed warming; including human greenhouse gas emissions matches the observed record." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"IPCC", q:"What is a Shared Socioeconomic Pathway (SSP)?", a:"An IPCC scenario framework representing different possible societal futures (e.g. SSP1 = sustainability, SSP5 = fossil-fuelled development) used to project future climate." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"IPCC", q:"What is the best-estimate long-term (2081–2100) warming for SSP1-1.9 and SSP5-8.5?", a:"SSP1-1.9: 1.4°C (range 1.0–1.8°C); SSP5-8.5: 4.4°C (range 3.3–5.7°C)." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"IPCC", q:"What role does aerosol cooling play in the observed warming record?", a:"Anthropogenic aerosols (from sulphur dioxide etc.) have a cooling effect that partially masks greenhouse gas-driven warming." },
+
+  // ANTHROPOCENE & ECVs (7)
+  { week:7, lecture:"Lec 7 · Climate", topic:"ANTHROPOCENE", q:"What epoch are we currently in officially, and since when?", a:"The Holocene — since 11,700 years ago." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ANTHROPOCENE", q:"What is the Anthropocene and has it been formally accepted as a geological term?", a:"A proposed epoch marking the era of dominant human influence on Earth systems; not formally accepted by the IUGS (2024), though usable informally." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ANTHROPOCENE", q:"What are Essential Climate Variables (ECVs)?", a:"Physical, chemical, and biological variables defined by GCOS (Global Climate Observing System) that are critical for characterising Earth's climate." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ANTHROPOCENE", q:"How many ECVs is the ESA Climate Change Initiative currently addressing, out of how many total?", a:"27 out of 38 ECVs defined by GCOS that are measurable from space." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ANTHROPOCENE", q:"Name the three main types of climate observation methods.", a:"In situ observations (on location), remote sensing (e.g. satellite), and proxies (reconstruction from geological archives)." },
+  { week:7, lecture:"Lec 7 · Climate", topic:"ANTHROPOCENE", q:"What does UNFCCC stand for, and how does the ESA CCI relate to it?", a:"United Nations Framework Convention on Climate Change; ESA CCI provides satellite climate data records required to understand, anticipate, and address climate change under the UNFCCC." },
+
+  // ── LECTURE 8 · ANTHROPOCENE ─────────────────────────────────────────────
+
+  // DEEP TIME & EARTH HISTORY (8)
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"DEEP TIME", q:"How old is the Universe, and how old is the Earth?", a:"The Universe is ~13.77 billion years old; the Earth formed ~4.6 billion years ago (4600 Ma)." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"DEEP TIME", q:"What does the cosmological timeline show about Earth's position relative to the Universe?", a:"Earth formed at ~4.5 billion years ago — roughly two-thirds of the way through the Universe's history; plants appeared ~465 Ma, dinosaurs ~243 Ma, monkeys ~55 Ma, and human-like monkeys ~4.4 Ma." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"DEEP TIME", q:"What did Earth look like at 4600 Ma, 4100 Ma, 640 Ma, and the present?", a:"4600 Ma: hot molten-orange surface; 4100 Ma: liquid water oceans (blue); 640 Ma: Snowball Earth (white/glaciated); present: familiar land-ocean pattern with ice caps." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"DEEP TIME", q:"Using the 24-hour clock analogy of Earth history, when do humans appear?", a:"At 11:59 pm — representing <0.003 Ga, emphasising how recently humans arose relative to Earth's history." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"DEEP TIME", q:"On the 24-hour Earth clock, when does the Hadean Eon end and life begin?", a:"At 3:12 am (3.9 Ga)." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"DEEP TIME", q:"On the 24-hour Earth clock, when do the first possible photosynthesisers and definite bacterial fossils appear?", a:"Possible photosynthesis at 3:44 am (3.8 Ga); tentative bacterial fossils at 5:20 am (3.5 Ga); definite bacterial fossils at 7:28 am (3.1 Ga)." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"DEEP TIME", q:"On the 24-hour Earth clock, when does the Cambrian Explosion occur, and when do dinosaurs go extinct?", a:"Cambrian Explosion at 9:07 pm (0.54 Ga); dinosaurs become extinct at 11:40 pm (0.065 Ga)." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"DEEP TIME", q:"What are the four geological eras of the Phanerozoic and their approximate start dates?", a:"Palaeozoic ~500 Ma; Mesozoic ~252 Ma; Cenozoic ~66 Ma (all within the Phanerozoic Eon). Plants appeared ~465 Ma, trees ~385 Ma, dinosaurs ~243 Ma." },
+
+  // EMERGENCE OF LIFE (8)
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"EMERGENCE OF LIFE", q:"What is the earliest geochemical evidence for life, and where was it found?", a:"Carbon stable isotope ratios from Isua, Greenland, dated to ~3.8 Ga, providing indirect geochemical evidence of life." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"EMERGENCE OF LIFE", q:"What were the earliest types of organism, and what type of photosynthesis did they first use?", a:"Heterotrophic and autotrophic bacteria; photosynthesis was initially anoxygenic — using H₂S instead of H₂O as the electron donor." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"EMERGENCE OF LIFE", q:"Write the equation for anoxygenic photosynthesis.", a:"CO₂ + 2H₂S → CH₂O + 2S + H₂O — produces sulfur rather than oxygen." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"EMERGENCE OF LIFE", q:"How do carbon isotopes provide evidence for early life?", a:"Life preferentially incorporates the lighter ¹²C (6 protons, 6 neutrons) over ¹³C (6 protons, 7 neutrons); carbon-depleted in ¹³C in ancient rocks signals biological activity." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"EMERGENCE OF LIFE", q:"What are stromatolites and how old are they?", a:"Layered sedimentary structures built by microbial mats (cyanobacteria/bacteria); trace fossils (stromatolites) are found at 1.5 Ga and living examples still exist today." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"EMERGENCE OF LIFE", q:"What is the oldest accepted fossil cell evidence, and from which rock formations?", a:"~3.5 billion years old; Gunflint Chert, USA (2.0 Ga) is 'definitely' fossil cells; Strelley Pool arenite, Australia (3.43 Ga) is 'maybe'; Apex Chert, Australia (3.46 Ga) is 'pseudo-fossils'." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"EMERGENCE OF LIFE", q:"For how long did stromatolites and bacterial mats dominate life on Earth?", a:"For approximately 2.5 billion years — from the Archean until the Cambrian." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"EMERGENCE OF LIFE", q:"What fossil cells are found in the Belcher Group, Canada, and how old are they?", a:"Definite early fossil cells preserved in chert; dated to 2.1 Ga." },
+
+  // GREAT OXYGENATION EVENT (8)
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"GREAT OXYGENATION EVENT", q:"When did cyanobacteria (oxygenic photosynthesisers) evolve, and when did the Great Oxygenation Event (GOE) occur?", a:"Cyanobacteria evolved between 2.5–3.8 Ga; the GOE occurred 2.4–2.1 Ga." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"GREAT OXYGENATION EVENT", q:"Write the equation for oxygenic photosynthesis.", a:"6CO₂ + 6H₂O → C₆H₁₂O₆ + nO₂ — produces oxygen as a by-product." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"GREAT OXYGENATION EVENT", q:"Write the equation for aerobic respiration and when did it first appear?", a:"C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O; aerobic respiration appeared ~2.0 Ga." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"GREAT OXYGENATION EVENT", q:"What are banded iron formations (BIFs) and what do they record?", a:"Layered sedimentary rocks of alternating iron-rich and silica-rich bands; they record the reaction of early atmospheric O₂ with dissolved Fe²⁺ in the ocean to form insoluble Fe³⁺ (iron rust), evidence for the GOE." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"GREAT OXYGENATION EVENT", q:"What is the atmospheric significance of the GOE?", a:"It fundamentally transformed Earth's atmosphere from anoxic (dominated by ammonia, methane) to one with free oxygen, enabling aerobic life and the development of the ozone layer." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"GREAT OXYGENATION EVENT", q:"What was the composition of Earth's early (Hadean/Archean) atmosphere vs. the present?", a:"Early: dominated by ammonia, methane, water vapour; very little nitrogen; essentially no oxygen. Present: ~78% nitrogen, ~21% oxygen, trace CO₂ and other gases." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"GREAT OXYGENATION EVENT", q:"Name two rock formations that provide evidence for the GOE beyond BIFs.", a:"Red bed formations (e.g. Belt Supergroup, Montana, ~1450 Ma) indicating oxidised iron on land; detrital pyrite grains (e.g. Koegas Subgroup, South Africa, ~2415 Ma) indicating anoxic conditions before GOE." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"GREAT OXYGENATION EVENT", q:"What happened to shallow and deep ocean oxygen levels before, during and after the GOE?", a:"Before GOE: shallow ocean had Fe²⁺ and H₂S; no O₂. During/after GOE (2.4–2.1 Ga): O₂ appeared in shallow ocean. Deep ocean: Fe²⁺ persisted much longer, eventually replaced by O₂ in the Phanerozoic." },
+
+  // ORIGIN OF EUKARYOTES (6)
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"EUKARYOTES", q:"When did eukaryotes first appear and what distinguishes them from prokaryotes?", a:"~1.6–1.7 Ga; eukaryotes have larger cells with a membrane-bound nucleus, organelles (mitochondria, plastids), and engage in sexual reproduction — unlike prokaryotes which lack a nucleus." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"EUKARYOTES", q:"What is endosymbiosis and what does it explain about eukaryote evolution?", a:"The engulfing of one prokaryote by another, with the inner cell becoming an organelle — explains the origin of mitochondria (from aerobic heterotrophic prokaryotes) and plastids/chloroplasts (from photosynthetic prokaryotes)." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"EUKARYOTES", q:"What is the evolutionary significance of sexual reproduction in eukaryotes?", a:"It increases genetic diversity by combining genes from two parents, providing greater resistance to disease and adaptive potential compared to asexual reproduction." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"EUKARYOTES", q:"What is LECA, and when did it live?", a:"Last Eukaryotic Common Ancestor — the ancestor of all living eukaryotes; estimated to have lived ~1650–2000 Ma based on molecular clock studies (Parfrey et al., 2011)." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"EUKARYOTES", q:"Name the oldest unicellular eukaryote fossil and its age.", a:"Qingshania magnifica at ~1635 Ma; oldest unicellular eukaryotes are ~1650 Ma." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"EUKARYOTES", q:"What are the approximate ages of the oldest red algae, green algae, and fungi fossils?", a:"Oldest red algae ~1050 Ma; oldest green algae ~950 Ma; oldest fungi ~890 Ma." },
+
+  // CAMBRIAN EXPLOSION (8)
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"CAMBRIAN EXPLOSION", q:"What are Ediacaran fossils and what was their significance?", a:"The earliest metazoans and possibly extinct pseudoanimals, appearing before the Cambrian Explosion; they represent the first complex multicellular organisms but lack the body plans of later animals." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"CAMBRIAN EXPLOSION", q:"What did the Cambrian Explosion (CE) produce, and approximately when did it occur?", a:"Rapid appearance of almost all major metazoan (animal) phyla ~539–500 Ma, including arthropods, molluscs, echinoderms, chordates — a radiation over millions of years." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"CAMBRIAN EXPLOSION", q:"What revolutionary behaviours arose during or after the Cambrian Explosion?", a:"Grazing, predation, floating/swimming, and burrowing — representing new ecological strategies impossible in the bacterial mat world." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"CAMBRIAN EXPLOSION", q:"What is the 'substrate revolution' associated with the Cambrian Explosion?", a:"The breakdown of the bacterial mat world — burrowing animals churned sediments, coupled the plankton and benthos (mixground ecology), and increased ocean ventilation, transforming seafloor ecology." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"CAMBRIAN EXPLOSION", q:"List four proposed triggers for the Cambrian Explosion.", a:"(1) Rise in atmospheric oxygen (threshold effect); (2) predation arms race (eyes, skeletons, mobility); (3) climate stability post-Snowball Earth; (4) genetic innovation (Hox genes, neural tissue)." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"CAMBRIAN EXPLOSION", q:"What role did Hox genes play in the Cambrian Explosion?", a:"Hox genes are 'trigger' regulatory genes controlling body plan development; their evolution may have enabled the rapid appearance of diverse body plans during the Cambrian Explosion." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"CAMBRIAN EXPLOSION", q:"Describe the four stages of the substrate revolution from Ediacaran to Cambrian Stage 3.", a:"Ediacaran: matground ecology; Fortunian: sediment bulldozing in diffusion-dominated benthos; Cambrian Stage 2: onset of mixground ecology, plankton-benthos coupling, increased ocean ventilation; Cambrian Stage 3: suspension feeders driving diversification of deposit-feeding strategies." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"CAMBRIAN EXPLOSION", q:"What was the Marinoan glaciation and when did it occur relative to the Cambrian Explosion?", a:"A global glaciation ('Snowball Earth') during the Cryogenian period (~635 Ma), just before the Ediacaran; its end may have contributed to conditions triggering the Cambrian Explosion." },
+
+  // LAND PLANTS (6)
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"LAND PLANTS", q:"From what ancestral group did land plants evolve, and what key reproductive adaptation did they develop?", a:"From ancestral green algae (charophytes); they evolved to break reproductive reliance on water, allowing colonisation of terrestrial environments from ~465 Ma." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"LAND PLANTS", q:"What was the second substrate revolution caused by land plants?", a:"Larger plants developed deeper root systems and mycorrhizal fungal relationships, breaking down rock, creating soil, and fundamentally restructuring terrestrial habitats." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"LAND PLANTS", q:"What three planetary-scale effects did the spread of land plants have?", a:"(1) Increased atmospheric oxygenation; (2) carbon sequestration (drawdown of CO₂); (3) creation of new terrestrial habitats and food sources enabling the 'invasion of the land' by animals." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"LAND PLANTS", q:"What geological unit provides Devonian evidence of early land plants, and where is it?", a:"The Rhynie Chert in Scotland — a Devonian-aged deposit containing exceptionally preserved early land plant fossils." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"LAND PLANTS", q:"What were the Carboniferous 'rain forests' and why are they significant?", a:"Dense tropical forests of the Carboniferous period (~359–299 Ma); their burial formed much of the world's coal deposits, sequestering vast amounts of carbon." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"LAND PLANTS", q:"What are angiosperms and when did they diversify?", a:"Flowering plants — the most diverse group of land plants today; they radiated dramatically in the Cretaceous and Cenozoic, now comprising the majority of terrestrial plant species." },
+
+  // K/PG MASS EXTINCTION & HUMANS (6)
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"K/PG EXTINCTION", q:"What dominated life on land, in the air and sea during the Mesozoic, and what changed it?", a:"Dinosaurs, pterosaurs, and ichthyosaurs dominated respectively; a meteorite impact at the Cretaceous/Paleogene (K/Pg) boundary ~66 Ma caused a mass extinction, ending their reign." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"K/PG EXTINCTION", q:"What was the ecological role of mammals before the K/Pg impact?", a:"Mammals were relatively small and mainly nocturnal — confined to marginal niches by dominant reptiles." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"K/PG EXTINCTION", q:"How did the K/Pg extinction enable mammalian diversification?", a:"Some mammals survived the impact; with ecological niches vacated by extinct reptiles, mammals diversified and expanded into all emptied niches during the Cenozoic, giving rise to modern mammalian orders." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"HUMAN EVOLUTION", q:"Outline the hominin timeline: forest apes → Homo sapiens.", a:"Forest apes 15 Ma → woodland apes 8–6 Ma → first hominins 3 Ma (diet: fruits) → Homo habilis 2.5 Ma → Homo erectus 1.8 Ma (omnivorous, fire/cooking) → Homo sapiens 800 kya (carnivorous, fire/cooking)." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"HUMAN EVOLUTION", q:"Where were hominins confined for their first 5 million years, and what environmental change drove their evolution?", a:"Confined to Africa; cooler and drier climates created open grassland environments where bipedalism and larger brains were advantageous." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"HUMAN EVOLUTION", q:"When did Homo sapiens expand out of Africa, and when did Neanderthals go extinct?", a:"H. sapiens began migrating out of Africa ~70,000 years ago; Neanderthals persisted until ~40,000 years ago and overlapped with H. sapiens." },
+
+  // STRATIGRAPHY & GEOLOGICAL TIMESCALE (7)
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"STRATIGRAPHY", q:"What is stratigraphy and how does it relate to the geological timescale?", a:"The study of rock layers (strata) to understand Earth history; the geological timescale subdivides, classifies, and names time periods based on changes in rock content, especially fossils and mass extinction events." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"STRATIGRAPHY", q:"What dual nomenclature system is used in the geological timescale?", a:"Each unit has both a rock-record name (e.g. System, Series, Stage) and a time name (e.g. Period, Epoch, Age) — reflecting the distinction between the physical rock record and the time it represents." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"STRATIGRAPHY", q:"What event separates the Precambrian from the Phanerozoic in the geological timescale?", a:"The appearance of visible (metazoan) fossils — i.e. the Cambrian Explosion (~539 Ma); before this, fossils are microscopic or absent." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"STRATIGRAPHY", q:"What separates the Palaeozoic, Mesozoic and Cenozoic eras?", a:"Major mass extinction events: the end-Permian extinction (~252 Ma) separates Palaeozoic from Mesozoic; the K/Pg extinction (~66 Ma) separates Mesozoic from Cenozoic." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"STRATIGRAPHY", q:"What does the Quaternary Period reflect in terms of climate, and what defines the Holocene?", a:"The Quaternary reflects the onset of intensified glacial/interglacial cycles; the Holocene (~11,700 years ago) is defined by the onset of a more stable climate (the current interglacial) during which humans expanded." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"STRATIGRAPHY", q:"What body oversees the formal naming and defining of stratigraphic units, and what is a GSSP?", a:"The International Commission on Stratigraphy (ICS); a GSSP (Global Boundary Stratotype Section and Point) is a physical reference section and marker point used as the standard boundary definition for a stratigraphic unit." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"STRATIGRAPHY", q:"What is the final ratification body for new stratigraphic units, and what vote threshold is required?", a:"The International Union of Geological Sciences (IUGS); a majority vote through ICS subcommissions and commissions is required before IUGS ratification." },
+
+  // CASE FOR THE ANTHROPOCENE (10)
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE CASE", q:"What is the core argument for designating a formal Anthropocene epoch?", a:"Human influence has been so great in magnitude that it is equivalent to previous major evolutionary transitions and will be identifiably recorded in the geological record — justifying a new formal time unit." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE CASE", q:"Why was the Holocene Epoch defined, and how does this differ from an Anthropocene definition?", a:"The Holocene was defined by the onset of stable climate (current interglacial) — not by a human-linked event; any Anthropocene definition would need to reference a specifically human-caused stratigraphic signal." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE CASE", q:"Beyond geology, who now uses the term 'Anthropocene' and for what purpose?", a:"Politicians, journalists, economists, environmental activists, and artists — to frame discussions about human influence (positive and negative) on Earth systems and our planetary legacy." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE CASE", q:"What did Ruddiman et al. (2015) argue about carbon emissions and glaciation?", a:"That anthropogenic carbon emissions have been significant enough to reset natural climate changes — we are in a modified interglacial that has delayed the onset of the next glaciation event." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE CASE", q:"What novel geochemical signals have humans introduced that could be identified in future geological records?", a:"Nuclear fallout (radionuclides including ²³⁹⁺²⁴⁰Pu deposition), plastics, elevated atmospheric ¹⁴C, global black carbon, and carbonaceous fly-ash particles from fossil fuel combustion." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE CASE", q:"What is 'made ground' and how does it constitute a novel sedimentological record?", a:"Urban ground cover of concrete, tarmac, landfill, engineered ground, etc. (Prince et al. 2011) — creates entirely artificial sedimentological successions in cities distinguishable from natural deposits." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE CASE", q:"According to Waters et al. (2016 Science), what three questions must be answered to confirm a geological time interval?", a:"(1) Is this enough of a 'state change'? (2) Do we have enough context/time? (3) Will it be identifiable in the future geological record?" },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE CASE", q:"What percentage of all large mammals (>45 kg) has been lost over the last 120,000 years, and what best explains this?", a:"50% of all large mammals (>45 kg) lost; diversity and abundance declines are best explained by human expansion." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE CASE", q:"Describe the change in land mammal biomass distribution from 100,000 years ago to 2015.", a:"100,000 yr ago: 20 million tC of wild mammals; 10,000 yr ago: 15 million tC; 1900: 35 million tC wild vs 13 million tC livestock (23% vs 60%); 2015: only ~3 million tC wild (2% of mammal biomass) vs >100 million tC livestock (63%) and 60 million tC humans (35%) — an 85% decline in wild terrestrial mammal biomass." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE CASE", q:"What is the Quaternary Megafaunal Extinction (QME), and what was its scope?", a:"Killed more than 178 species of the world's largest mammals; humans were identified as a primary driver — coinciding with human expansion into new continents." },
+
+  // ANTHROPOCENE TRANSITIONS (12)
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE TRANSITIONS", q:"What is the 'Anthropocene Event' concept proposed by Gibbard et al. (2022a)?", a:"Rather than a formal epoch with a fixed start, the Anthropocene is better described as a gradual-onset event with no clear synchronous marker point — human impact increased continuously from early prehistory." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE TRANSITIONS", q:"List the six main proposed start points for the Anthropocene with their associated marker and proponent.", a:"(1) Megafauna extinction — fossil megafauna marker (Barnosky 2014); (2) Neolithic revolution — CO₂/CH₄ rise (Ruddiman 2013); (3) Columbian exchange — CO₂ drawdown/Orbis spike (Lewis & Maslin 2015); (4) Industrial Revolution — flyash/CO₂ rise (Crutzen & Stoermer 2000); (5) Great Acceleration — radionuclides (Waters et al. 2023); (6) Megafauna extinction in Pleistocene — late Quaternary Extinction Episode." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE TRANSITIONS", q:"What is the 'early Anthropocene' hypothesis (Ruddiman 2013), and what gases are implicated?", a:"Agriculture beginning ~8,000 years ago caused a 'Neolithic' rise in CO₂ (from deforestation) and CH₄ (from wet rice farming) that deviated from expected natural declines — an early human climate signal." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE TRANSITIONS", q:"What is the Columbian Exchange and why is it significant for Anthropocene discussions?", a:"The transfer of organisms, diseases, and peoples between the Old and New Worlds following 1492; spread of European diseases (smallpox, measles, malaria, swine flu, yellow fever) killed an estimated 50 million people in the Americas." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE TRANSITIONS", q:"What is the 'Orbis spike', when does it occur, and what causes it?", a:"A sharp drop in atmospheric CO₂ around 1610 CE; caused by the Columbian Exchange — 50 million deaths led to abandonment of farmland, reforestation of tropical areas, and carbon drawdown producing a detectable cooling signal (Lewis & Maslin 2015, Nature)." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE TRANSITIONS", q:"Who originally proposed the Industrial Revolution as the start of the Anthropocene, and what is the key marker?", a:"Crutzen & Stoermer (2000); the marker is the rise of flyash (carbonaceous particles) and CO₂ from fossil fuel combustion beginning ~1800." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE TRANSITIONS", q:"What is the 'Great Acceleration' and approximately when does it begin?", a:"A dramatic post-WWII surge in human population, economic activity, and Earth system pressures (CO₂, N₂O, CH₄, deforestation, water use, etc.) beginning around 1950 CE." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE TRANSITIONS", q:"What was the Anthropocene Working Group's (AWG) proposed GSSP for the Anthropocene, and what happened to it?", a:"The AWG proposed 1950 CE as the start, marked by ²³⁹⁺²⁴⁰Pu (plutonium from nuclear bomb testing) fallout recorded in Crawford Lake, Ontario, Canada (McCarthy et al. 2023); it was voted down by the Quaternary Subcommission." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE TRANSITIONS", q:"Why is plutonium (²³⁹⁺²⁴⁰Pu) considered an ideal Anthropocene marker?", a:"Nuclear weapons testing from ~1952 deposited globally synchronous plutonium fallout in sediments worldwide; it is novel (no natural source), globally distributed, and precisely datable — meeting GSSP requirements." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE TRANSITIONS", q:"What additional signals accompany the Pu spike in Crawford Lake cores (Waters et al. 2023)?", a:"Carbonaceous particles (fly-ash/soot from fossil fuels), plastics, elevated atmospheric ¹⁴C, and other Great Acceleration indicators that collectively mark the mid-20th century boundary." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE TRANSITIONS", q:"Why is it difficult to choose a single synchronous marker for the Anthropocene start?", a:"Most candidate signals are diachronous — they appear at different times in different regions (e.g. onset of Neolithic agriculture, megafaunal extinctions, Industrial Revolution) making global synchrony hard to demonstrate." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"ANTHROPOCENE TRANSITIONS", q:"Name four of the 'Great Acceleration' metrics that show exponential increase since ~1950.", a:"Any four from: human population, total real GDP, foreign direct investment, atmospheric CO₂, N₂O, CH₄, water use, fertiliser consumption, loss of tropical forests, motor vehicles, telephones, ozone depletion, urban population, species extinction rate." },
+
+  // SIXTH MASS EXTINCTION (7)
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"SIXTH MASS EXTINCTION", q:"What statistic illustrates the collapse of the North American bison population?", a:"60 million bison were reduced to just 541 individuals in less than 100 years — driven by hunting." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"SIXTH MASS EXTINCTION", q:"What happened to the Passenger Pigeon, and why is it a striking example of human-caused extinction?", a:"The Passenger Pigeon (Ectopistes migratorius) went from 3–5 billion individuals to extinction in less than 100 years; the last individual died in 1905." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"SIXTH MASS EXTINCTION", q:"Give three examples of recently extinct species with their approximate extinction dates.", a:"Any three from: Tasmanian Tiger 1938; Caribbean monk seal 1952; Great Auk 1852; Stellar's sea cow 1768; Cuban macaw 1885; Passenger Pigeon 1905; Red Gazelle 1894; Carolina parakeet 1918." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"SIXTH MASS EXTINCTION", q:"What pattern of megafaunal extinction is seen when comparing Africa, Australia, North America, and Madagascar after human arrival?", a:"In Africa (where H. sapiens co-evolved with megafauna): gradual decline; in Australia, North America, and Madagascar: rapid collapse of large mammal survival percentages shortly after human arrival — consistent with human hunting as a primary driver." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"SIXTH MASS EXTINCTION", q:"What happened to wild terrestrial mammal biomass since the rise of humans?", a:"An 85% decline in wild terrestrial mammal biomass — from ~20 million tC (100,000 years ago) to ~3 million tC (2015), while human and livestock biomass expanded dramatically." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"SIXTH MASS EXTINCTION", q:"What does the graph of recorded extinctions over time (Benton & Harper) show?", a:"Recorded extinctions were near zero before 1700, increased through 1800–1900, peaked around 1900–1950 at ~130 per decade, then appeared to decline — likely reflecting a reporting lag rather than a real decrease." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"SIXTH MASS EXTINCTION", q:"How do the Columbian Exchange species transfers illustrate biotic homogenisation?", a:"Americas sent maize, potatoes, tomatoes, cocoa, tobacco etc. to Europe/Africa/Asia; Europe/Africa sent wheat, sugar, cattle, horses, sheep, and diseases (smallpox, measles, typhus) to the Americas — mixing previously isolated biota and causing extinctions of native species." },
+
+  // PLANETARY BOUNDARIES (5)
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"PLANETARY BOUNDARIES", q:"According to Richardson et al. (2023), how many of the nine planetary boundaries has Earth exceeded?", a:"Six of the nine planetary boundaries have been exceeded." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"PLANETARY BOUNDARIES", q:"List the nine planetary boundaries.", a:"Climate change, biosphere integrity (genetic & functional), land system change, freshwater change, biogeochemical flows (P & N), novel entities, stratospheric ozone depletion, atmospheric aerosol loading, ocean acidification." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"PLANETARY BOUNDARIES", q:"What are the three possible Anthropocene futures described in the lecture?", a:"(1) Anthropocene Rupture — +4°C global warming, very warm and highly unstable state; (2) Managed Anthropocene — +2°C warming, slightly warmer and slightly less stable; (3) Safe Anthropocene — stable Holocene-like state maintained." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"PLANETARY BOUNDARIES", q:"What role do positive and negative feedbacks play in the transition to the Anthropocene?", a:"During the stable Holocene, negative feedbacks stabilised conditions; as we cross the tipping point into the Anthropocene, positive feedbacks accelerate change, potentially leading to irreversible warming states." },
+  { week:8, lecture:"Lec 8 · Anthropocene", topic:"PLANETARY BOUNDARIES", q:"What is the key message of the 'it is not too late' slide regarding the Anthropocene?", a:"A Safe Anthropocene — economically equitable, maintaining diversity, not too hot or cold — is still achievable; Earth scientists and future leaders have the agency to steer toward this outcome through informed action." },
+
+  // ══════════════════════════════════════════════════════
+  // WEEK 1 — EARTH RESOURCES AND THE ENERGY TRANSITION
+  // Lecturer: Dr Katie McFall (k.mcfall@ucl.ac.uk, room 112, Kathleen Lonsdale Building)
+  // ══════════════════════════════════════════════════════
+
+  // WHY MINING
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"WHY MINING", q:"What is the foundational principle of why mining is necessary?", a:"\"If it can't be grown, it has to be mined.\" Every aspect of human society uses mined material." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"WHY MINING", q:"Name four broad categories of human society that rely on mined materials.", a:"Technology (cars, phones, computers); buildings and infrastructure (cement, aggregate); food production (phosphate fertiliser); and power (coal/oil/gas and technology metals for renewables)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"WHY MINING", q:"Which mined mineral is essential for fibre glass roofing?", a:"Feldspar." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"WHY MINING", q:"Which mined mineral is used in toothpaste?", a:"Mica." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"WHY MINING", q:"Which mined mineral is used in water filtration?", a:"Silver." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"WHY MINING", q:"Which mined mineral is used in detergent?", a:"Phosphate." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"WHY MINING", q:"Which mined mineral provides the glue, lining and stitching of footballs?", a:"Potash." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"WHY MINING", q:"What metal are bicycle frames made from (in the lecture infographic)?", a:"Molybdenum." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"WHY MINING", q:"What metal is used in TV transistors?", a:"Gallium." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"WHY MINING", q:"What mineral are computer monitors made from (in the lecture infographic)?", a:"Lead (in older CRT monitors)." },
+
+  // BINGHAM CANYON
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"BINGHAM CANYON", q:"What commodity is mined at Bingham Canyon?", a:"Copper." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"BINGHAM CANYON", q:"Where is Bingham Canyon mine located?", a:"Utah, USA." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"BINGHAM CANYON", q:"What record does Bingham Canyon hold?", a:"It is the world's largest open pit mine." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"BINGHAM CANYON", q:"How deep is Bingham Canyon mine?", a:"1,210 m deep (equivalent to approximately 4 Shards)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"BINGHAM CANYON", q:"What is the surface area covered by Bingham Canyon mine?", a:"7.7 km² (for comparison, the City of London covers 2.9 km²)." },
+
+  // ENERGY TRANSITION
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ENERGY TRANSITION", q:"What is driving the current energy transition?", a:"Climate change — the need to phase out coal, oil (and possibly gas) as energy sources and move to renewable power and electric vehicles, driven by national and international climate commitments." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ENERGY TRANSITION", q:"Are energy transitions historically unprecedented?", a:"No — energy transitions are not a new thing. The global energy mix has been shifting since the Industrial Revolution (biomass → coal → oil → renewables)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ENERGY TRANSITION", q:"What was the primary energy source for humans before 1800?", a:"Traditional biomass (wood, dung) for heat, and muscles for kinetic energy." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ENERGY TRANSITION", q:"What happened to coal usage from 1930 onwards?", a:"Coal usage increased significantly with the growth of steam power and coal-fired power plants." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ENERGY TRANSITION", q:"When was the first commercial oil well drilled and where?", a:"1859, in Titusville, Pennsylvania, USA." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ENERGY TRANSITION", q:"What happened to oil demand from 1960?", a:"Oil demand surged as gasoline vehicles took off, accounting for 40% of global energy consumption by 1970." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ENERGY TRANSITION", q:"What percentage of the global energy mix was still provided by fossil fuels in 2020?", a:"78%." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ENERGY TRANSITION", q:"What percentage of global greenhouse gas emissions did energy account for in 2016?", a:"73.2%." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ENERGY TRANSITION", q:"What percentage of global GHG emissions came from road transport in 2016?", a:"11.9%." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ENERGY TRANSITION", q:"What percentage of global GHG emissions came from aviation and shipping combined in 2016?", a:"3.6% (aviation ~1.9%, shipping ~1.7%)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ENERGY TRANSITION", q:"What alternative fuel is proposed for aviation and shipping decarbonisation?", a:"Hydrogen and other alternative fuels." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ENERGY TRANSITION", q:"What were global greenhouse gas emissions in 2016 (from the lecture chart)?", a:"49.4 billion tonnes CO₂ equivalent." },
+
+  // METAL USE OVER TIME
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"METAL USE OVER TIME", q:"What three elements characterised metal use in the windmill era (~1700)?", a:"Carbon (C), Calcium (Ca), and Iron (Fe)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"METAL USE OVER TIME", q:"What additional metals appeared in the steam engine era (~1800)?", a:"Tin (Sn), Tungsten (W), Copper (Cu), Manganese (Mn), and Lead (Pb) were added to the C, Ca, Fe base." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"METAL USE OVER TIME", q:"What metals were added in the early automobile era (~1900)?", a:"Aluminium (Al) and Rare Earth Elements (REE), plus Cobalt (Co) and Chromium (Cr)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"METAL USE OVER TIME", q:"What characterises metal demand in the renewable energy / modern era (~2000)?", a:"A far larger suite of metals required, including Li, Nb, In, K, Pd, Rh, Ta, Te, U, Ru, Re, P, Ge, Ga, Cd, Ag — many critical for EV batteries and renewable technologies." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"METAL USE OVER TIME", q:"What is the general trend in number of metals used as technology advances?", a:"The number of metals required increases dramatically with each technological era; modern renewables require far more diverse elements than pre-industrial technologies." },
+
+  // RENEWABLE TECH METALS
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RENEWABLE TECH METALS", q:"What is the copper range used per wind turbine?", a:"Between 400 kg and 4 tonnes per turbine, depending on the technology used." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RENEWABLE TECH METALS", q:"What metals are used in permanent magnets in many wind turbines?", a:"Neodymium (Nd), Iron (Fe), Boron (B), and Dysprosium (Dy)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RENEWABLE TECH METALS", q:"What metals support battery energy storage for integrating renewables into the grid?", a:"Lead (Pb), Lithium (Li), Nickel (Ni), or Sodium (Na) technologies." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RENEWABLE TECH METALS", q:"Which two metals enhance the longevity and performance of high-tech steel in wind turbine towers?", a:"Molybdenum (Mo) and Zinc (Zn) — thermally sprayed zinc provides over 20 years of corrosion protection." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RENEWABLE TECH METALS", q:"How many of the 19 non-ferrous metals used in renewable energy generation are produced by Canada's mining industry?", a:"14 of the 19." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RENEWABLE TECH METALS", q:"Which renewable technology requires the most minerals per MW of capacity according to the IEA 2021 data?", a:"Offshore wind — it requires the most kg/MW of all electricity generation technologies listed." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RENEWABLE TECH METALS", q:"What is the single largest metal component by kg/MW in offshore wind according to the IEA 2021 chart?", a:"Zinc (shown in orange — the largest bar segment for offshore wind)." },
+
+  // HYDROGEN
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"HYDROGEN", q:"How is grey hydrogen produced?", a:"By splitting natural gas (CH₄); this produces CO₂ as a by-product and is the most common current method of hydrogen production." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"HYDROGEN", q:"How is blue hydrogen produced?", a:"By splitting natural gas and capturing and storing the resulting CO₂ using Carbon Capture and Storage (CCS)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"HYDROGEN", q:"How is green hydrogen produced?", a:"By electrolysing water using renewable electricity; produces no CO₂, but requires platinum as a catalyst." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"HYDROGEN", q:"What critical mineral does green hydrogen electrolysis require?", a:"Platinum (for catalysis)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"HYDROGEN", q:"Name three potential uses of hydrogen as an energy carrier.", a:"Heavy transport (e.g. mine trucks), shipping fuel, domestic heating, and power generation — though thermodynamic inefficiencies are a challenge." },
+
+  // ELECTRIC VEHICLES
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ELECTRIC VEHICLES", q:"How much graphite does an electric vehicle require (kg per vehicle)?", a:"66.3 kg." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ELECTRIC VEHICLES", q:"How much copper does an electric vehicle require (kg per vehicle)?", a:"53.2 kg." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ELECTRIC VEHICLES", q:"How much nickel does an electric vehicle require (kg per vehicle)?", a:"39.9 kg." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ELECTRIC VEHICLES", q:"How much manganese does an electric vehicle require (kg per vehicle)?", a:"24.5 kg." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ELECTRIC VEHICLES", q:"How much cobalt does an electric vehicle require (kg per vehicle)?", a:"13.3 kg." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ELECTRIC VEHICLES", q:"How much lithium does an electric vehicle require (kg per vehicle)?", a:"8.9 kg." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ELECTRIC VEHICLES", q:"How much do rare earths contribute to an electric vehicle's mineral content (kg per vehicle)?", a:"0.5 kg." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ELECTRIC VEHICLES", q:"How does an EV motor compare in weight to a conventional car engine?", a:"A conventional engine (e.g. Honda Civic) weighs ~184 kg; a Chevy Bolt EV motor weighs only 76 kg." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ELECTRIC VEHICLES", q:"Approximately how many kg of total minerals does an electric car contain, compared to a conventional car (IEA 2021)?", a:"An electric car contains approximately 200+ kg of minerals; a conventional car contains only approximately 30 kg." },
+
+  // COPPER DEMAND & NET ZERO
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"COPPER DEMAND", q:"What was global copper demand in 2022?", a:"Approximately 25 million tonnes per year (×10⁶ tonnes/yr)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"COPPER DEMAND", q:"According to Adam Simon (AGU 2023), if the entire world drives EVs and all electricity comes from wind + solar, what copper demand does this imply by mid-century?", a:"Approximately 150 Mt (million tonnes) per year — far exceeding projected mine supply." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"COPPER DEMAND", q:"What is the projected copper demand if just the US and EU eliminate all fossil fuels and move to 100% EVs charged from solar and wind?", a:"Approximately 50–60 Mt/yr by 2050, still well above projected mine production." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"COPPER DEMAND", q:"Even accounting for recycling (future refinery output), does copper supply meet full-electrification demand scenarios?", a:"No — even with recycling, projected supply falls well short of demand under full-electrification scenarios." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"COPPER DEMAND", q:"How many new world-class copper mines per year must open through 2050 to meet US+EU fossil-fuel elimination demand?", a:"Approximately 3 new world-class mines per year through 2050." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"COPPER DEMAND", q:"How many new world-class copper mines per year must open if the entire world electrifies?", a:"Approximately 6 new world-class mines per year through 2050." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"COPPER DEMAND", q:"What is the average output of a top-10 copper mine per year?", a:"0.472 × 10⁶ tonnes of copper per year." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"COPPER DEMAND", q:"How long does it typically take to bring a new mine from discovery to production?", a:"Approximately 20 years." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"COPPER DEMAND", q:"What is the world's largest copper mine and where is it?", a:"Escondida, Chile — produced 1.060 Mt of copper in 2022." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"COPPER DEMAND", q:"Name the second and third largest copper mines (2022) and their countries.", a:"Collahuasi, Chile (0.589 Mt) and El Teniente, Chile (0.456 Mt)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"COPPER DEMAND", q:"What is the Kamoa-Kakula mine and where is it?", a:"The 9th largest copper mine in 2022 (0.334 Mt), located in the DRC (Democratic Republic of Congo)." },
+
+  // RECYCLING & CIRCULAR ECONOMY
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RECYCLING", q:"How energy-efficient is recycling aluminium compared to primary production?", a:"Recycling uses only 5% of the total energy required for primary aluminium production." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RECYCLING", q:"What is the difference between a linear economy and a circular economy?", a:"A linear economy follows Resource Extraction → Production → Distribution → Consumption → Waste. A circular economy uses re-use, repair, recycling and recovery to minimise waste and keep materials in use." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RECYCLING", q:"Despite recycling, why will mining still be needed in the near-medium future?", a:"100% efficiency is never achievable; metal uses change with new technologies; global population growth is ongoing; developing nations are increasing consumption; the demand from the energy transition is enormous." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RECYCLING", q:"By how much does the global population grow during a 2-hour lecture?", a:"Approximately 18,000 people." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RECYCLING", q:"What is a realistic circular economy for mining, as shown by the EIT RawMaterials diagram?", a:"Primary resources → Exploration → Mining → Processing → Raw Materials, then cycling back through Design, Production, Use/Reuse, Collection, and Recycling — but with waste streams at each stage, meaning 100% circularity is not achievable." },
+
+  // POPULATION & DEVELOPMENT
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"POPULATION & DEVELOPMENT", q:"When did global population reach 1 billion?", a:"1804." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"POPULATION & DEVELOPMENT", q:"When did global population reach 8 billion?", a:"Around November 2024 (the slide says '2024: 8 bln')." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"POPULATION & DEVELOPMENT", q:"When is global population projected to reach 9 billion?", a:"2048." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"POPULATION & DEVELOPMENT", q:"In 2023, how many people worldwide still lacked access to clean cooking?", a:"Around 2.3 billion people." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"POPULATION & DEVELOPMENT", q:"Why does global electrification equity increase copper demand beyond energy transition projections?", a:"Extending electricity access to billions of currently under-served people requires enormous additional copper for grid infrastructure, pushing demand even higher than EV/renewables alone." },
+
+  // RESOURCES VS RESERVES
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RESOURCES VS RESERVES", q:"Define a mineral reserve.", a:"The part of a mineral deposit that is economic to mine under today's conditions." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RESOURCES VS RESERVES", q:"Define a mineral resource.", a:"The total amount of a material present in a deposit, whether currently economic to mine or not." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RESOURCES VS RESERVES", q:"List the four categories of mineral resource in descending order of certainty.", a:"Measured, Indicated, Inferred, and Hypothetical (or Speculative)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RESOURCES VS RESERVES", q:"Who is legally permitted to confirm which resource category a mineral deposit belongs to?", a:"A legally liable 'competent person' — a qualified, regulated professional geologist." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RESOURCES VS RESERVES", q:"Why are resource and reserve estimates strictly regulated?", a:"Because they directly affect company asset valuation and share prices — mis-reporting can constitute fraud." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RESOURCES VS RESERVES", q:"Can a reserve ever be larger than the resource for the same deposit?", a:"No — the reserve is always a subset of (equal to or smaller than) the identified resource." },
+
+  // BRE-X SCANDAL
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"BRE-X SCANDAL", q:"What was Bre-X Minerals and what fraud did it commit?", a:"A Canadian listed company that fraudulently claimed its Busang gold deposit in Indonesia contained 200 MOz of gold (the world's largest), inflating its share price from 30 cents to $286 before the fraud was uncovered." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"BRE-X SCANDAL", q:"How does the fraudulent Busang gold claim compare to the world's actual largest gold mine?", a:"Bre-X claimed 200 MOz; the world's largest genuine gold mine contains approximately 30.2 MOz — the claim was about 6× too large." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"BRE-X SCANDAL", q:"What was the peak share price of Bre-X?", a:"$286 (up from 30 cents)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"BRE-X SCANDAL", q:"How did project manager Michael de Guzman 'salt' the Busang samples?", a:"Initially by filing gold from his own wedding ring into sample bags; later by adding panned gold from a local river to samples." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"BRE-X SCANDAL", q:"What were the joint venture shares in the Bre-X deal?", a:"Bre-X 45%, Government of Indonesia 40%, Freeport McMoRan 15%." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"BRE-X SCANDAL", q:"Who discovered the Bre-X fraud, and when?", a:"Freeport McMoRan's due diligence team in March 1997; they found only minor amounts of gold." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"BRE-X SCANDAL", q:"What happened to Michael de Guzman?", a:"On 19 March 1997 he fell out of a helicopter; police ruled it suicide." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"BRE-X SCANDAL", q:"What regulatory outcome resulted from the Bre-X scandal?", a:"It led to strict regulation of professional geology in Canada and the establishment of strict international codes for reporting mineral reserves and resources (e.g. NI 43-101)." },
+
+  // DISTRIBUTION OF EARTH RESOURCES
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RESOURCE DISTRIBUTION", q:"Are mineral deposits distributed equally around the world?", a:"No — mineral deposits are geologically and chemically anomalous concentrations; their distribution is controlled by geological processes, not random." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RESOURCE DISTRIBUTION", q:"What is the average copper concentration in continental crust?", a:"28 ppm (parts per million)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RESOURCE DISTRIBUTION", q:"What is the copper concentration in a mineable ore deposit?", a:"1–10 wt.% — a concentration factor of approximately 2000× the crustal average." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RESOURCE DISTRIBUTION", q:"What are the four requirements ('recipe') for an ore deposit to form?", a:"(1) A source of metals; (2) something to concentrate them; (3) something to transport them; (4) something to trap them. Together these are 'ore-forming processes'." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RESOURCE DISTRIBUTION", q:"What country holds 42% of global phosphorus reserves?", a:"Morocco & Western Sahara." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RESOURCE DISTRIBUTION", q:"What percentage of global chromium reserves are held by Kazakhstan?", a:"60%." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RESOURCE DISTRIBUTION", q:"What percentage of global platinum/rhodium reserves does South Africa hold?", a:"88%." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"RESOURCE DISTRIBUTION", q:"What is the dominant type of copper deposit by world production?", a:"Porphyry copper deposits, which are primarily concentrated in North and South America." },
+
+  // ORE-FORMING PROCESSES
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ORE-FORMING PROCESSES", q:"What are the two main categories of surface ore-forming processes?", a:"(1) Physical/chemical/organic sedimentation (including weathering); (2) chemical sedimentation and evaporites." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ORE-FORMING PROCESSES", q:"What are placer deposits and what metals/minerals do they concentrate?", a:"Deposits formed by flowing water concentrating dense, resistant minerals; gold, diamond, platinum, zircon, and monazite are typical placer minerals." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ORE-FORMING PROCESSES", q:"What are laterite deposits and what metals do they concentrate?", a:"Laterites form by deep chemical weathering of rocks in tropical environments; they concentrate nickel and aluminium (bauxite)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ORE-FORMING PROCESSES", q:"What are evaporite deposits and what minerals do they contain?", a:"Deposits formed by evaporation of brines; they contain halite, sylvite, borax, and lithium salts." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ORE-FORMING PROCESSES", q:"What type of organic sedimentation ore deposit produces hydrocarbons, sulfur, and phosphate?", a:"Organic activity or accumulation — accumulation and preservation of organic matter forms these deposits." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ORE-FORMING PROCESSES", q:"What deposit type forms from crystal segregation in magmas, and what metals does it concentrate?", a:"Orthomagmatic (crystal segregation) deposits concentrate chromium and vanadium." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ORE-FORMING PROCESSES", q:"What deposit type forms from immiscible magma separation, and what metals does it concentrate?", a:"Magmatic sulfide deposits concentrate nickel, copper, cobalt, and platinum group elements (PGE)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ORE-FORMING PROCESSES", q:"What percentage of global mineral deposit value (by deposit type) is attributable to hydrothermal deposits?", a:"47%." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ORE-FORMING PROCESSES", q:"What percentage of global mineral deposit value is attributable to sedimentary deposits?", a:"20%." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ORE-FORMING PROCESSES", q:"What percentage of global mineral deposit value is attributable to weathering deposits?", a:"18%." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ORE-FORMING PROCESSES", q:"What percentage of global mineral deposit value is attributable to orthomagmatic deposits?", a:"15%." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ORE-FORMING PROCESSES", q:"What is the single largest commodity by value of production among mined minerals?", a:"Iron (Fe) at 36% of value of production by commodity." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"ORE-FORMING PROCESSES", q:"What are the top five commodities by value of production and their approximate percentages?", a:"Fe 36%, Cu 16%, Au 15%, Al 10%, Zn 4%." },
+
+  // COAL FORMATION
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"COAL FORMATION", q:"What two organic sources form coal?", a:"Humic coal forms from woody plant material; sapropelic coal forms from algae and spores." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"COAL FORMATION", q:"What is the role of bogs in coal formation?", a:"Organic matter is kept from oxidation (and therefore decomposition) by waterlogging in bogs, accumulating as peat." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"COAL FORMATION", q:"What is the progressive maturation sequence of coal from peat?", a:"Peat → Lignite → Sub-bituminous → Bituminous → Anthracite (with increasing burial, pressure, and temperature)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"COAL FORMATION", q:"What condition is needed for coal to form rather than just mudstone?", a:"Organic material accumulation must exceed the flux of clastic (mineral) sediment." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"COAL FORMATION", q:"What geological period produced most of the world's coal seams?", a:"The Carboniferous Period, 359–299 Ma." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"COAL FORMATION", q:"Why is coal still essential beyond power generation?", a:"Coal (as coke) is essential for the steel industry as a reducing agent in blast furnaces." },
+
+  // OIL & GAS FORMATION
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"OIL & GAS FORMATION", q:"What organic material is the source of oil and natural gas?", a:"Compressed plankton — heat and pressure convert organic matter (kerogen) into oil and gas." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"OIL & GAS FORMATION", q:"What is the 'oil window'?", a:"The range of temperature (roughly 60–120°C) and depth in a sedimentary basin at which kerogen is converted into oil; below this window, gas forms instead." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"OIL & GAS FORMATION", q:"What two geological features are essential for an oil/gas accumulation?", a:"A porous reservoir rock (to store hydrocarbons) and a structural or stratigraphic trap (to prevent escape)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"OIL & GAS FORMATION", q:"What technique is used in hydrocarbon exploration to image subsurface structures?", a:"Seismic imaging." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"OIL & GAS FORMATION", q:"Beyond energy, why is oil still needed?", a:"Oil is the feedstock for petrochemical products: plastics, fibres, industrial chemicals, coolants, solvents, and detergents." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"OIL & GAS FORMATION", q:"Name two secondary uses of oil infrastructure/products related to the energy transition.", a:"Depleted oil reservoirs can be used for Carbon Capture and Storage (CCS); natural gas is used for hydrogen and ammonia production." },
+
+  // VMS DEPOSITS
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"VMS DEPOSITS", q:"What does VMS stand for and what does it describe?", a:"Volcanogenic Massive Sulfide — seafloor hydrothermal ore deposits rich in Pb, Zn, Cu, Au, Co and technology metals (Se, Te, Ga, Ge)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"VMS DEPOSITS", q:"In what tectonic environments do VMS deposits form?", a:"Extensional tectonic environments — mid-ocean ridges and back-arc spreading centres." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"VMS DEPOSITS", q:"What is the modern analogue for VMS deposit formation?", a:"Black smoker hydrothermal vents on the seafloor." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"VMS DEPOSITS", q:"Describe the source, transport, and trap in VMS deposit formation.", a:"Source: seawater strips metals from ocean crust. Transport: magmatic heat drives hot (250–350°C) seawater circulation through the crust. Trap: hot metal-rich fluid vents into cold seawater — rapid temperature drop causes metal precipitation." },
+
+  // STRATIFORM SEDIMENT-HOSTED Cu
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"STRATIFORM Cu DEPOSITS", q:"What is the rank of stratiform sediment-hosted copper deposits in global copper production?", a:"Second to porphyry copper deposits in terms of world copper production." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"STRATIFORM Cu DEPOSITS", q:"Name two major examples of stratiform sediment-hosted copper districts.", a:"Kupferschiefer in central Europe and the Central African Copperbelt (Zambia & DRC)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"STRATIFORM Cu DEPOSITS", q:"What are the source, transport conditions, and trap mechanism for stratiform sediment-hosted copper deposits?", a:"Source: hot water leaches metals from basement rock. Transport: salty, oxidised fluids at 100–150°C circulate through oxidised sediments and evaporites beneath reduced shales. Trap: oxidised fluid becomes reduced (either by reacting with reduced sediments or mixing with a reduced fluid), causing copper to precipitate." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"STRATIFORM Cu DEPOSITS", q:"What additional critical mineral does the Central African Copperbelt (Zambia & DRC) supply, and at what global percentage?", a:"Cobalt — the region supplies approximately 68% of the world's cobalt." },
+
+  // PORPHYRY Cu DEPOSITS
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"PORPHYRY Cu DEPOSITS", q:"What fraction of world copper ore do porphyry copper deposits provide?", a:"The majority of the world's copper ore; they also provide almost all molybdenum (Mo) and a significant share of gold (Au)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"PORPHYRY Cu DEPOSITS", q:"In what tectonic setting do porphyry copper deposits generally form?", a:"Above subduction zones." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"PORPHYRY Cu DEPOSITS", q:"At what depth do porphyry copper deposits form?", a:"In the mid-crust, at 1–6 km depth, beneath a failed (stalled) volcano; the magma chamber is at 5–10 km depth." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"PORPHYRY Cu DEPOSITS", q:"What structures are formed by exsolved volatiles fracturing country rock in porphyry systems?", a:"Vein stockworks and hydrothermal breccias." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"PORPHYRY Cu DEPOSITS", q:"What are the source requirements for porphyry copper formation?", a:"Felsic calc-alkaline plutons (intrusions) that are water-rich (~4 wt.%) and oxidised (sulfur present as SO₄)." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"PORPHYRY Cu DEPOSITS", q:"What temperature range characterises transport fluids in porphyry copper systems?", a:"High-temperature oxidised magmatic-hydrothermal fluid at 650–300°C." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"PORPHYRY Cu DEPOSITS", q:"What is the trapping mechanism for copper precipitation in porphyry deposits?", a:"Fluid cooling from approximately 550°C to approximately 350°C, causing copper sulfide precipitation from the brine." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"PORPHYRY Cu DEPOSITS", q:"What is the minimum magma chamber volume typically associated with porphyry copper systems?", a:"Greater than 100 km³." },
+
+  // HUBBERT / PEAK RESOURCES
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"PEAK RESOURCES", q:"Who developed the concept of 'Peak Oil' and when?", a:"Hubbert, developed in the 1920s–1950s, based on modelling production and consumption cycles." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"PEAK RESOURCES", q:"Why did Hubbert's Peak Oil prediction fail to materialise?", a:"New discoveries in Alaska and the development of shale oil (unconventional) extraction extended supplies beyond what Hubbert's model predicted." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"PEAK RESOURCES", q:"Who applied Hubbert-style methods to metals and what did they predict for copper?", a:"Sverdrup & Ragnarsdóttir (2014) estimated the copper discovery peak was in 1996 and that we would start running out of copper in 2036." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"PEAK RESOURCES", q:"Is Sverdrup & Ragnarsdóttir's 2036 copper depletion prediction supported by discovery data?", a:"No — Arndt et al. (2017) showed that discovery and production data do not support this prediction; new deposits continue to be found." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"PEAK RESOURCES", q:"What does the Arndt et al. (2017) base metals discovery dataset show about deposit discovery depth over time?", a:"Increasingly deeper deposits are being found — newer discoveries tend to be at greater depth of cover (up to 3000 m), showing technology is extending our reach." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"PEAK RESOURCES", q:"What is the average delay between peak reserve discovery and peak production across commodities (Sverdrup et al. 2013)?", a:"40 ± 4 years." },
+  { week:1, lecture:"Lec 1 · Earth Resources", topic:"PEAK RESOURCES", q:"According to Sverdrup & Ragnarsdóttir (2014), in what year did gold discovery peak, and when did gold production peak?", a:"Discovery peak 1968; production peak 2008 — a delay of 40 years." },
+
+  // ══════════════════════════════════════════════════════
+  // WEEK 10 — LECTURE 10: EXTRACTION, PROCESSING & ESG
+  // 90 cards
+  // ══════════════════════════════════════════════════════
+
+  // MINING LIFECYCLE (10)
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"MINING LIFECYCLE", q:"List the five stages of the ore deposit lifecycle in order.", a:"1. Exploration → 2. Feasibility, planning and permitting → 3. Construction → 4. Extraction and processing → 5. Closure and remediation." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"MINING LIFECYCLE", q:"How long does the exploration phase of a mine typically last?", a:"8–10+ years." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"MINING LIFECYCLE", q:"How long does the construction phase of a mine typically last?", a:"1–3 years." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"MINING LIFECYCLE", q:"How long does the operation phase of a mine typically last?", a:"10–30 years." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"MINING LIFECYCLE", q:"How long does the closure phase of a mine typically last?", a:"1–2 years." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"MINING LIFECYCLE", q:"How long does the reclamation/monitoring phase of a mine typically last?", a:"Reclamation 1–4 years; monitoring 5 years to infinity." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"MINING LIFECYCLE", q:"What is the total typical time from concept to startup in the ore deposit lifecycle?", a:"Concept to pre-discovery: 4–5 years; discovery: 1–2 years; feasibility: 2–3 years; development: 2 years; startup: 1 year — roughly 10–13 years before production begins." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"MINING LIFECYCLE", q:"What are the four risk types shown on the ore deposit lifecycle risk diagram?", a:"Fluctuating commodity prices, funding risk, technical risk, and exploration risk." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"MINING LIFECYCLE", q:"What is the 'Orphan Period' in the ore deposit lifecycle?", a:"After initial excitement of a discovery, proven deposits require large amounts of capital for construction but are not yet receiving cash flows from an operating mine — a funding gap." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"MINING LIFECYCLE", q:"What are the typical activities during the pre-discovery stage of exploration?", a:"Trenching, geophysics, geochemistry, and geology." },
+
+  // EXPLORATION (9)
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"EXPLORATION", q:"What are the four steps of the exploration workflow?", a:"1. Pick target; 2. Mapping and sampling; 3. Geophysical and geochemical survey; 4. Drilling and core logging." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"EXPLORATION", q:"What three data sources are used to pick an exploration target?", a:"Geological knowledge of ore-forming processes; local geological survey data; historical data and company reports." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"EXPLORATION", q:"What is the difference between greenfield and brownfield exploration?", a:"Greenfield = going somewhere new (more risk, more cost, but potentially greater rewards); Brownfield = exploring near an existing mine (less risk, less cost, can skip to drilling — but complicated by pre-existing workings and licensing)." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"EXPLORATION", q:"Name three geophysical/geochemical survey methods used in mineral exploration.", a:"Airborne geophysics, ground geophysics, and geochemical sampling (producing geochemical anomaly maps and geophysical anomaly maps)." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"EXPLORATION", q:"What is core logging in mineral exploration?", a:"A geologist examines the cylinder of rock drilled from depth (core) to record lithology, structure, mineralisation, and alteration." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"EXPLORATION", q:"Why is community relations an important part of the exploration phase?", a:"Gaining local trust and social licence to operate is essential before and during all stages — particularly in remote areas or indigenous territories." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"EXPLORATION", q:"What does the global map of porphyry copper deposits show about their distribution?", a:"They cluster along subduction zone belts — particularly the Andean margin of South America, western North America, and Central Asia." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"EXPLORATION", q:"What assay result was shown on the core sample in the lecture slides, and what does it imply?", a:"11.35 g/t (2PGE+Au) — a platinum-group element and gold assay indicating economically significant concentrations in that drill core." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"EXPLORATION", q:"What is infill drilling, and at what stage does it occur?", a:"Closely-spaced drilling to better define the grade and geometry of a deposit; occurs during the feasibility stage to upgrade resource confidence from inferred to measured/indicated categories." },
+
+  // FEASIBILITY & PERMITTING (5)
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"FEASIBILITY & PERMITTING", q:"What are the three key activities in the feasibility, planning and permitting stage?", a:"Reserve estimation and resource modelling (infill drilling); mine planning (controlled by geology then cost); permitting." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"FEASIBILITY & PERMITTING", q:"What does 3D resource modelling produce?", a:"A 3D block model showing the spatial distribution of ore grades throughout a deposit, used to plan mining volumes and sequences." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"FEASIBILITY & PERMITTING", q:"What are CAPEX and OPEX in mine feasibility?", a:"CAPEX = capital expenditure (upfront construction costs); OPEX = operating costs (ongoing production costs). Both are estimated during feasibility." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"FEASIBILITY & PERMITTING", q:"What categories define a Mineral Resource, from least to most confidence?", a:"Inferred → Indicated → Measured Mineral Resource, progressing to Ore Reserve (Probable → Proven) with increasing geological and economic confidence." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"FEASIBILITY & PERMITTING", q:"Why is mine planning said to be 'controlled by geology (then by cost)'?", a:"The shape and grade of the orebody dictates where and how material can be extracted; economics then determine which portions are financially viable to mine." },
+
+  // SURFACE EXTRACTION (8)
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"SURFACE EXTRACTION", q:"What are the two main types of surface (overground) mining?", a:"Open pit mining and strip mining." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"SURFACE EXTRACTION", q:"What is open pit mining?", a:"Removing rock in successive benches (terraced steps) to extract ore from a large surface depression; used for large, low-grade porphyry Cu, gold, and iron ore deposits." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"SURFACE EXTRACTION", q:"What is strip mining and for what commodity is it most commonly used?", a:"Removing successive strips of overburden to access shallow, flat-lying ore; most commonly used for coal deposits." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"SURFACE EXTRACTION", q:"What large machine is used in strip mining to remove overburden?", a:"A bucket wheel excavator — a massive rotating machine with a large toothed wheel that continuously excavates soft rock and soil." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"SURFACE EXTRACTION", q:"What type of large vehicle is used to haul ore out of open pit mines?", a:"Haul trucks (mining dump trucks) — very large rigid-frame trucks that carry many tens of tonnes of ore or waste rock." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"SURFACE EXTRACTION", q:"What is the strip ratio in open pit mining?", a:"The ratio of waste rock removed to ore extracted — a key economic parameter; higher strip ratios increase mining costs and may make a deposit uneconomic." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"SURFACE EXTRACTION", q:"Name three large porphyry copper open pit mines referenced in the lecture.", a:"Bingham Canyon (Utah, USA), Escondida (Chile), and Chuquicamata (Chile) — among the world's largest open pit mines." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"SURFACE EXTRACTION", q:"What are the main environmental disadvantages of open pit mining?", a:"Large land disturbance, waste rock dumps, tailings generation, dust, noise, visual impact, and potential acid mine drainage." },
+
+  // UNDERGROUND EXTRACTION (8)
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"UNDERGROUND EXTRACTION", q:"List five underground mining methods mentioned in the lecture.", a:"Open stoping, sublevel caving, block caving, room and pillar, and longwall mining." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"UNDERGROUND EXTRACTION", q:"What is block caving and why is it cost-effective?", a:"A mass mining method where the base of a large ore block is undercut, causing it to cave under gravity — low cost per tonne but requires a massive, structurally suitable ore body." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"UNDERGROUND EXTRACTION", q:"What is room and pillar mining?", a:"Ore is extracted in a series of rooms while leaving pillars of ore/rock to support the roof — commonly used in flat-lying deposits like coal and potash." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"UNDERGROUND EXTRACTION", q:"What is longwall mining?", a:"A highly mechanised method where a long wall of coal or mineral is cut in a single slice using a shearer, with hydraulic roof supports advancing as the face moves forward." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"UNDERGROUND EXTRACTION", q:"What is sublevel caving?", a:"Ore is drilled and blasted in sublevels then drawn through draw-points as it caves — used for large, steeply dipping ore bodies." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"UNDERGROUND EXTRACTION", q:"What surface hazard can result from underground block caving?", a:"Sinkholes — collapse of the ground surface above caved-out underground workings, sometimes visible from the air." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"UNDERGROUND EXTRACTION", q:"What is open stoping?", a:"Mining ore out of large voids (stopes) supported by pillars or backfill — used for moderately to steeply dipping ore bodies of moderate size." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"UNDERGROUND EXTRACTION", q:"What factors determine whether open pit or underground mining is chosen?", a:"Depth of ore, ore grade, geometry (shape and dip), surrounding rock strength, strip ratio economics, and capital requirements." },
+
+  // PROCESSING (12)
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"PROCESSING", q:"What is the overall goal of mineral processing?", a:"Separation of valuable ore minerals from gangue (waste minerals) — valuable minerals go to concentrate; gangue goes to tailings/waste." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"PROCESSING", q:"What is gangue in ore processing?", a:"The unwanted rock or minerals associated with an ore deposit, which must be separated from the valuable ore minerals during processing." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"PROCESSING", q:"What is comminution?", a:"Breaking ore into minute fragments — the first step in processing, comprising crushing and milling." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"PROCESSING", q:"What percentage of total global energy consumption does comminution (crushing and milling) account for?", a:"3% of total global energy consumption." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"PROCESSING", q:"What is pyrometallurgy?", a:"Processing using thermal (heat) treatment — e.g. smelting ore in a furnace to separate and refine metals." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"PROCESSING", q:"What is hydrometallurgy?", a:"Processing using aqueous (water-based) chemistry — e.g. leaching metals from ore using acid, ammonia, or cyanide solutions." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"PROCESSING", q:"Why is mineral processing described as 'never 100% efficient'?", a:"There are always losses — some valuable metal is lost to the tailings stream and cannot be fully recovered, even with optimised processing." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"PROCESSING", q:"What is geometallurgy?", a:"The integration of geological, metallurgical, and mineralogical data to create a predictive model for how different parts of an ore deposit will behave in the mineral processing plant." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"PROCESSING", q:"What do the mineralogical abbreviations 'cpy', 'py', and 'moly' stand for?", a:"cpy = chalcopyrite (CuFeS₂); py = pyrite (FeS₂); moly = molybdenite (MoS₂)." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"PROCESSING", q:"Why is mineral processing described as 'very energy and water intensive'?", a:"Comminution consumes 3% of global electricity; flotation and leaching require large volumes of water for slurry transport, reagent mixing, and cooling." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"PROCESSING", q:"What is froth flotation and how does it separate minerals?", a:"A processing technique that exploits differences in mineral surface hydrophobicity — air bubbles selectively attach to target minerals and float them to a froth layer, separating them from hydrophilic gangue." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"PROCESSING", q:"Why are ores described as 'often complex, containing more than one mineral' in the context of processing challenges?", a:"Multiple ore minerals with different properties require different or sequential processing steps to recover each metal — increasing cost and reducing efficiency." },
+
+  // WATER CONFLICT & CO₂ (5)
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"WATER & CO2", q:"Why does water use in mining cause conflict, particularly for copper and lithium mines?", a:"Many large copper and lithium mines are in regions of high water stress (e.g. Atacama Desert, Chile) — mining competes with local communities and agriculture for scarce freshwater." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"WATER & CO2", q:"Which metal has the highest CO₂ emissions per tonne of metal content according to the lecture CO₂ chart?", a:"Neodymium oxide — approximately 75–80 tCO₂-eq per tonne of metal content (dominated by processing emissions)." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"WATER & CO2", q:"Which metal has the second highest CO₂ emissions per tonne of metal content in the lecture chart?", a:"Cobalt sulfate — approximately 17 tCO₂-eq per tonne of metal." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"WATER & CO2", q:"For most metals in the CO₂ chart, which component dominates: mining emissions or processing emissions?", a:"Processing emissions dominate for most metals (larger blue bar); mining emissions (cyan bar) are a smaller proportion." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"WATER & CO2", q:"Which common metal has the lowest combined CO₂ emissions per tonne of metal content in the lecture chart?", a:"Iron and steel — approximately 1–2 tCO₂-eq per tonne, the lowest of those shown." },
+
+  // TAILINGS & MINE WASTE (7)
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"TAILINGS", q:"What are tailings?", a:"The waste material remaining after ore minerals have been extracted during processing — typically a fine-grained slurry stored in tailings storage facilities (TSFs)." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"TAILINGS", q:"What is the total volume of tailings stored globally according to the Global Tailings Review?", a:"~217 km³ (217.3 km³) — equivalent to a cube 6 km tall." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"TAILINGS", q:"What is the total weight of global tailings stored?", a:"282.5 billion tonnes." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"TAILINGS", q:"What is the annual growth rate of global tailings volume?", a:"12.3 km³ per year." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"TAILINGS", q:"How many active, inactive, and closed tailings storage facilities exist globally?", a:"Approximately 8,500." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"TAILINGS", q:"What commodity produces the most tailings globally, and what percentage?", a:"Copper mining — 46% of global tailings. Gold is second at 21%." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"TAILINGS", q:"What was the Brumadinho dam disaster and what were its consequences?", a:"January 2019, Brazil — a tailings dam at Vale's Córrego do Feijão mine collapsed; 270 people died, 12 million m³ of material released, severe environmental contamination, $7 billion in damages." },
+
+  // CLOSURE & REMEDIATION (4)
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"CLOSURE & REMEDIATION", q:"What is mine remediation?", a:"Restoring mined land to a natural state or an economically usable state after mining has ceased." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"CLOSURE & REMEDIATION", q:"Give one example of a positive mine closure outcome shown in the lecture.", a:"The Eden Project in Cornwall, UK — built inside a former china clay pit, now a major tourist attraction and botanical biome." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"CLOSURE & REMEDIATION", q:"What is acid mine drainage and why is it a long-term closure risk?", a:"When sulfide minerals in waste rock or tailings are exposed to water and oxygen, sulfuric acid is produced — this acidic, metal-rich leachate contaminates rivers and groundwater for decades." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"CLOSURE & REMEDIATION", q:"What does a 'positive legacy' mean in responsible mine closure?", a:"Leaving the host community at a level of development that exceeds the pre-mining state — through infrastructure, skills, employment opportunities, and environmental restoration." },
+
+  // ESG FUNDAMENTALS (8)
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"ESG FUNDAMENTALS", q:"What does ESG stand for?", a:"Environmental, Social, and Governance." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"ESG FUNDAMENTALS", q:"What is the Brundtland Commission definition of sustainable development?", a:"'Development that meets the needs of the present without compromising the ability of future generations to meet their own needs.' (Brundtland Commission, 1987)." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"ESG FUNDAMENTALS", q:"Who led the World Commission on Environment and Development in 1987?", a:"Gro Harlem Brundtland — Prime Minister of Norway — on behalf of the UN." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"ESG FUNDAMENTALS", q:"In what year were the UN SDGs adopted, by how many governments, and how many goals, targets, and indicators do they have?", a:"2015; 193 governments; 17 goals, 169 targets, 304 indicators." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"ESG FUNDAMENTALS", q:"What shift in ESG perception occurred from approximately 2022 onwards?", a:"ESG moved from a 'nice to have' / compliance focus to genuinely influencing corporate strategy — investors now require it, seeing it as delivering both protection against threats and realisation of opportunities." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"ESG FUNDAMENTALS", q:"List five Environmental ESG factors in mining.", a:"Land use; biodiversity and nature conservation; water; noise, visual and vibration; waste; rehabilitation and closure; climate change; permits (any five)." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"ESG FUNDAMENTALS", q:"List five Social ESG factors in mining.", a:"Health and safety; stakeholder engagement; site access; social impacts; local hiring; local procurement; social context; expectations for shared value; permits (any five)." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"ESG FUNDAMENTALS", q:"List five Governance ESG factors in mining.", a:"Corporate governance; board composition (diversity); management; business ethics; tax transparency; compliance; government and regulatory bodies; stakeholder engagement; permits (any five)." },
+
+  // JUST TRANSITION & SUSTAINABLE MINING (7)
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"JUST TRANSITION", q:"What is the 'Just Transition'?", a:"Meeting climate goals while ensuring no harm to communities or the environment — greening the economy in a way that is fair and inclusive, ensuring the solution is not more harmful than the problem." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"JUST TRANSITION", q:"What is the central tension in the Just Transition for the mining industry?", a:"Mining is required to supply metals for the energy transition (EV batteries, wind turbines, solar panels), but mining causes social and environmental harm — the challenge is supplying these metals responsibly." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"JUST TRANSITION", q:"What are the five pillars of sustainable mining practices shown in the lecture?", a:"Resource efficiency, environment, economics, safety, and community." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"JUST TRANSITION", q:"What is 'zero waste mining' in the context of geometallurgy?", a:"Using geometallurgy to maximise metal recovery and minimise waste — understanding where the metal is in the deposit, why it is there, and how best to extract it to leave no recoverable value behind." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"JUST TRANSITION", q:"Give two real-world examples of companies aiming for net zero mining emissions.", a:"LKAB (Swedish iron ore company, targeting carbon-free sponge iron, contributions to reduce Sweden's total emissions by 2060); Anglo American (hydrogen-powered haul trucks)." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"JUST TRANSITION", q:"What is the geothermal Direct Lithium Extraction project referenced in the lecture, and where is it?", a:"A Direct Lithium Extraction plant commissioned at United Downs Deep Geothermal Project in Cornwall, UK — extracting lithium from geothermal brines." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"JUST TRANSITION", q:"What collaboration is cited as an example of sustainable copper value chain development?", a:"Anglo American's collaboration with Aurubis on a sustainable copper value chain (Global Mining Review, November 2022)." },
+
+  // UCL SUSTAINABLE MINING RESEARCH (5)
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"UCL RESEARCH", q:"What is the focus of UCL's geometallurgy research described in the lecture?", a:"Geometallurgy of gold (Au) and critical metals in copper mines — locating and characterising precious and critical metals within ore minerals to improve recovery rates." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"UCL RESEARCH", q:"What is Sopcheite and what is its chemical formula?", a:"A rare silver-palladium telluride mineral: Ag₄Pd₃Te₄." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"UCL RESEARCH", q:"What is Kotulskite and what is its chemical formula?", a:"A palladium telluride-bismuthide mineral: Pd(Te,Bi)." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"UCL RESEARCH", q:"What analytical techniques are used in UCL's ore mineralogy research?", a:"Scanning electron microscopy (SEM) for imaging micro-scale minerals, and laser ablation (pulsed laser on a target producing ions for mass spectrometric analysis) for elemental composition." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"UCL RESEARCH", q:"What novel processing method is UCL researching as an alternative to traditional sulphide separation, and who published it?", a:"Deep Eutectic Solvents (DES) — mixtures of choline chloride and urea — for environmentally friendly dissolution and recovery of precious metals (Jenkin et al., Minerals Engineering)." },
+
+  // SUSTAINABLE MINING RESEARCH (4)
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"SUSTAINABLE RESEARCH", q:"What are the four themes of sustainable mining research listed in the lecture?", a:"1. Better geometallurgy; 2. Novel processing techniques (bioleaching and eutectic solvents); 3. More efficient exploration; 4. Resource from waste (tailings reprocessing)." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"SUSTAINABLE RESEARCH", q:"What is bioleaching in the context of sustainable mining?", a:"Using microorganisms (bacteria) to extract metals from low-grade ore or waste — a lower-energy, lower-chemical-impact alternative to conventional hydrometallurgy." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"SUSTAINABLE RESEARCH", q:"What is 'resource from waste' in sustainable mining?", a:"Reprocessing old tailings dams or mine waste to extract residual metals — recovering value whilst simultaneously reducing the environmental footprint of historical waste." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"SUSTAINABLE RESEARCH", q:"What advantage do Deep Eutectic Solvents offer over conventional sulphide separation?", a:"They are low-toxicity, biodegradable ionic liquid analogues that selectively dissolve and recover precious metals without the use of cyanide or strong acids used in conventional processing." },
+
+  // MINING INDUSTRY STRUCTURE (7)
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"INDUSTRY STRUCTURE", q:"What are the three categories of mining company?", a:"Large mining companies; junior mining companies; artisanal and small scale mining (ASM)." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"INDUSTRY STRUCTURE", q:"How is a large (major) mining company defined?", a:"Assets >$1 billion (major) or >$100 million (medium), >100,000 tonnes ore per annum, multi-national, multi-commodity, and stock exchange listed." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"INDUSTRY STRUCTURE", q:"Name four major mining companies shown in the lecture.", a:"Rio Tinto, Anglo American, Glencore, BHP, VALE, Norisk Nickel, Barrick (any four)." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"INDUSTRY STRUCTURE", q:"How is a junior mining company defined?", a:"Usually <$100 million assets, more geographically limited, 1–3 commodities, <100,000 tonnes ore per annum, commonly but not always listed." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"INDUSTRY STRUCTURE", q:"How does the OECD define artisanal and small scale mining (ASM)?", a:"'Formal or informal mining, which is usually low cost, labor intensive, and includes simplified forms of exploration, extraction, processing, and transport.'" },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"INDUSTRY STRUCTURE", q:"How many artisanal miners are there globally and how many people does ASM directly employ (World Bank)?", a:"~45 million artisanal miners across 80 countries; 134 million people directly employed." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"INDUSTRY STRUCTURE", q:"What percentage of global diamond, gold, sapphire, and cobalt production does ASM account for?", a:"~25% of diamonds, ~20% of gold, ~80% of sapphires, 18–30% of cobalt." },
+
+  // ESG FRAMEWORKS & GOVERNANCE (5)
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"ESG GOVERNANCE", q:"What does ICMM stand for and what is its stated vision?", a:"International Council on Mining & Metals — vision: 'A safe, just and sustainable world enabled by responsibly produced minerals and metals.'" },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"ESG GOVERNANCE", q:"What are the three environmental resilience pillars in ICMM's 2022–2024 strategy?", a:"Climate Change, Nature, and Water." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"ESG GOVERNANCE", q:"What is the IRMA Responsible Mining Standard?", a:"Initiative for Responsible Mining Assurance — the first responsible mining standard enabling companies to be independently audited and certified; launched ~2018." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"ESG GOVERNANCE", q:"What three things are needed to open a mine (the 'three circles' diagram)?", a:"Ore and technical skills to extract it; a licence to operate (social and regulatory permission); finance and market demand." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"ESG GOVERNANCE", q:"What are the Equator Principles and how many principles do they comprise?", a:"A bank-focused project finance framework — 10 principles for managing environmental and social policy requirements in large infrastructure and mining projects, used by major lending banks." },
+
+  // TAKE HOME POINTS (4)
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"TAKE HOME POINTS", q:"How long does it typically take from initial exploration concept to opening a mine?", a:"10–20 years." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"TAKE HOME POINTS", q:"At what stage of the mining lifecycle do ESG considerations first arise?", a:"From the very beginning — ESG issues are present at every stage from initial exploration through to post-closure monitoring." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"TAKE HOME POINTS", q:"What does the lecture conclude about responsible mining and sustainable development?", a:"Responsible mining can play an important role in achieving sustainable development — but there is a long way to go." },
+  { week:10, lecture:"Lec 10 · Mining & ESG", topic:"TAKE HOME POINTS", q:"Why is ESG compliance now non-negotiable for mining companies?", a:"It is demanded by regulation, investors, and customers — and is now seen to deliver value through protection against threats (fines, licence loss) and realisation of opportunities (investment, access to markets)." },
+
+];
+
+
+</script>
+
+<!-- ── DOM ────────────────────────────────────── -->
+<div class="top-badge"><span class="badge">GEOL0007 · UCL EARTH SCI</span></div>
+<h1 class="main-title">Master Flashcard Set</h1>
+<div class="subtitle" id="subtitleEl">// 108 flashcards · click card to flip</div>
+
+<!-- Lecture tabs -->
+<div class="lecture-tabs" id="lectureTabs"><button class="tab-btn">ALL LECTURES</button><button class="tab-btn">Lec 6 · Rock Cycle</button><button class="tab-btn">Lec 6 · Oceanography</button><button class="tab-btn">Lec 7 · Climate</button><button class="tab-btn">Lec 8 · Anthropocene</button><button class="tab-btn">Lec 1 · Earth Resources</button><button class="tab-btn active">Lec 10 · Mining &amp; ESG</button></div>
+
+<!-- Topic pills -->
+<div class="pills-wrap" id="pillsWrap"><button class="pill active">ALL</button><button class="pill">MINING LIFECYCLE</button><button class="pill">EXPLORATION</button><button class="pill">FEASIBILITY &amp; PERMITTING</button><button class="pill">SURFACE EXTRACTION</button><button class="pill">UNDERGROUND EXTRACTION</button><button class="pill">PROCESSING</button><button class="pill">WATER &amp; CO2</button><button class="pill">TAILINGS</button><button class="pill">CLOSURE &amp; REMEDIATION</button><button class="pill">ESG FUNDAMENTALS</button><button class="pill">JUST TRANSITION</button><button class="pill">UCL RESEARCH</button><button class="pill">SUSTAINABLE RESEARCH</button><button class="pill">INDUSTRY STRUCTURE</button><button class="pill">ESG GOVERNANCE</button><button class="pill">TAKE HOME POINTS</button></div>
+
+<!-- Controls -->
+<div class="controls">
+  <button class="ctrl-btn" onclick="shuffleDeck()">⇄ SHUFFLE</button>
+  <button class="ctrl-btn" onclick="resetDeck()">↺ RESET</button>
+  <button class="ctrl-btn review" onclick="reviewMarked()">★ REVIEW MARKED</button>
+</div>
+
+<!-- Progress -->
+<div class="progress-section">
+  <div class="progress-label">
+    <span id="cardLabel">Card 1 of 108</span>
+    <span id="pctLabel">1%</span>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="progressFill" style="width: 1%;"></div></div>
+</div>
+
+<!-- Card -->
+<div class="card-wrap">
+  <div class="card" id="cardEl" onclick="flipCard()">
+    <div class="card-inner">
+      <div class="card-flipper" id="cardFlipper">
+        <div class="card-side card-front-side">
+          <div class="card-type-label">QUESTION</div>
+          <div class="card-text" id="qText">List the five stages of the ore deposit lifecycle in order.</div>
+          <div class="topic-tag" id="topicTag">MINING LIFECYCLE</div>
+          <div class="card-hint">tap to reveal</div>
+        </div>
+        <div class="card-side card-back-side">
+          <div class="card-type-label">ANSWER</div>
+          <div class="card-text" id="aText">1. Exploration → 2. Feasibility, planning and permitting → 3. Construction → 4. Extraction and processing → 5. Closure and remediation.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation -->
+<div class="nav-row">
+  <button class="nav-btn" id="prevBtn" onclick="prevCard()" disabled="">‹</button>
+  <div class="nav-counter" id="navCounter">1 / 108</div>
+  <button class="nav-btn" id="nextBtn" onclick="nextCard()">›</button>
+</div>
+
+<!-- Verdict buttons -->
+<div class="verdict-row">
+  <button class="verdict-btn btn-know" id="knowBtn" onclick="markCard(true)">✓ KNOW IT</button>
+  <button class="verdict-btn btn-learn" id="learnBtn" onclick="markCard(false)">✗ LEARN IT</button>
+</div>
+
+<!-- Stats bar -->
+<div class="stats-bar">
+  <div class="stat-item">Known: <span class="stat-known" id="statKnown">0</span></div>
+  <div class="stat-item">To learn: <span class="stat-learn" id="statLearn">0</span></div>
+  <div class="stat-item">Unseen: <span class="stat-unseen" id="statUnseen">108</span></div>
+</div>
+
+<!-- Complete overlay -->
+<div class="complete-overlay" id="completeOverlay">
+  <div class="complete-box">
+    <h2>SESSION DONE</h2>
+    <p id="completeSubtitle">here's how you did</p>
+    <div class="complete-grid">
+      <div class="cstat"><div class="cstat-num" style="color:var(--green)" id="cKnown">0</div><div class="cstat-label">KNEW IT</div></div>
+      <div class="cstat"><div class="cstat-num" style="color:var(--pink)" id="cLearn">0</div><div class="cstat-label">STILL LEARNING</div></div>
+    </div>
+    <div class="complete-actions">
+      <button class="ca-btn ca-primary" id="reviewAgainBtn" onclick="reviewMarked()">REVIEW MARKED CARDS</button>
+      <button class="ca-btn ca-secondary" onclick="closeComplete()">BACK TO DECK</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── STATE ─────────────────────────────────────
+let allCards = [...FLASHCARDS];
+let deck = [];
+let idx = 0;
+let flipped = false;
+let known = new Set(JSON.parse(localStorage.getItem('known') || '[]'));
+let toLearn = new Set(JSON.parse(localStorage.getItem('toLearn') || '[]'));
+let activeLecture = 'ALL';
+let activeTopic = 'ALL';
+
+// ── INIT ─────────────────────────────────────
+function init() {
+  buildTabs();
+  buildPills();
+  applyFilters();
+  updateSubtitle();
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length-1; i > 0; i--) {
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+// ── TABS ─────────────────────────────────────
+function buildTabs() {
+  const el = document.getElementById('lectureTabs');
+  const lectures = ['ALL', ...new Set(FLASHCARDS.map(c => c.lecture))];
+  el.innerHTML = '';
+  lectures.forEach(l => {
+    const btn = document.createElement('button');
+    btn.className = 'tab-btn' + (l === 'ALL' ? ' active' : '');
+    btn.textContent = l === 'ALL' ? 'ALL LECTURES' : l;
+    btn.onclick = () => selectLecture(l);
+    el.appendChild(btn);
+  });
+}
+
+function selectLecture(l) {
+  activeLecture = l;
+  activeTopic = 'ALL';
+  document.querySelectorAll('.tab-btn').forEach((b,i) => {
+    const lectures = ['ALL', ...new Set(FLASHCARDS.map(c => c.lecture))];
+    b.classList.toggle('active', lectures[i] === l);
+  });
+  buildPills();
+  applyFilters();
+}
+
+// ── PILLS ─────────────────────────────────────
+function buildPills() {
+  const el = document.getElementById('pillsWrap');
+  const source = activeLecture === 'ALL' ? FLASHCARDS : FLASHCARDS.filter(c => c.lecture === activeLecture);
+  const topics = ['ALL', ...new Set(source.map(c => c.topic))];
+  el.innerHTML = '';
+  topics.forEach(t => {
+    const btn = document.createElement('button');
+    btn.className = 'pill' + (t === activeTopic ? ' active' : '');
+    btn.textContent = t;
+    btn.onclick = () => selectTopic(t);
+    el.appendChild(btn);
+  });
+}
+
+function selectTopic(t) {
+  activeTopic = t;
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  event.target.classList.add('active');
+  applyFilters();
+}
+
+// ── FILTERS ─────────────────────────────────
+function applyFilters() {
+  let filtered = FLASHCARDS;
+  if (activeLecture !== 'ALL') filtered = filtered.filter(c => c.lecture === activeLecture);
+  if (activeTopic !== 'ALL') filtered = filtered.filter(c => c.topic === activeTopic);
+  deck = [...filtered];
+  idx = 0;
+  known = new Set(); toLearn = new Set();
+  renderCard();
+  updateStats();
+  updateSubtitle();
+}
+
+// ── RENDER ─────────────────────────────────
+function renderCard() {
+  if (deck.length === 0) {
+    document.getElementById('qText').textContent = 'No cards match this filter.';
+    document.getElementById('aText').textContent = '';
+    document.getElementById('topicTag').textContent = '';
+    return;
+  }
+  const card = deck[idx];
+  document.getElementById('qText').textContent = card.q;
+  document.getElementById('aText').textContent = card.a;
+  document.getElementById('topicTag').textContent = card.topic;
+  const n = idx+1, total = deck.length;
+  document.getElementById('cardLabel').textContent = `Card ${n} of ${total}`;
+  document.getElementById('navCounter').textContent = `${n} / ${total}`;
+  const pct = Math.round((n/total)*100);
+  document.getElementById('pctLabel').textContent = pct + '%';
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('prevBtn').disabled = idx === 0;
+  document.getElementById('nextBtn').disabled = idx === deck.length-1;
+
+  // Reset flip
+  flipped = false;
+  document.getElementById('cardFlipper').classList.remove('flipped');
+  document.getElementById('cardEl').classList.remove('flipped');
+  document.getElementById('knowBtn').classList.remove('visible');
+  document.getElementById('learnBtn').classList.remove('visible');
+}
+
+function flipCard() {
+  if (flipped) return;
+  flipped = true;
+  document.getElementById('cardFlipper').classList.add('flipped');
+  document.getElementById('cardEl').classList.add('flipped');
+  setTimeout(() => {
+    document.getElementById('knowBtn').classList.add('visible');
+    document.getElementById('learnBtn').classList.add('visible');
+  }, 150);
+}
+
+function prevCard() {
+  if (idx > 0) { idx--; renderCard(); }
+}
+
+function nextCard() {
+  if (idx < deck.length-1) { idx++; renderCard(); }
+}
+
+function markCard(isKnown) {
+  const card = deck[idx];
+  const id = card.q;
+  if (isKnown) { known.add(id); toLearn.delete(id); }
+  else { toLearn.add(id); known.delete(id); }
+  localStorage.setItem('known', JSON.stringify([...known]));
+  localStorage.setItem('toLearn', JSON.stringify([...toLearn]));
+  updateStats();
+  if (idx < deck.length-1) {
+    idx++;
+    renderCard();
+  } else {
+    // End of deck
+    document.getElementById('cKnown').textContent = known.size;
+    document.getElementById('cLearn').textContent = toLearn.size;
+    const reviewBtn = document.getElementById('reviewAgainBtn');
+    reviewBtn.style.display = toLearn.size > 0 ? 'block' : 'none';
+    document.getElementById('completeOverlay').classList.add('show');
+  }
+}
+
+function updateStats() {
+  const seen = known.size + toLearn.size;
+  const unseen = deck.length - seen;
+  document.getElementById('statKnown').textContent = known.size;
+  document.getElementById('statLearn').textContent = toLearn.size;
+  document.getElementById('statUnseen').textContent = unseen;
+}
+
+function shuffleDeck() {
+  deck = shuffle(deck);
+  idx = 0;
+  renderCard();
+}
+
+function resetDeck() {
+  known = new Set(); toLearn = new Set();
+  localStorage.removeItem('known');
+  localStorage.removeItem('toLearn');
+  idx = 0;
+  renderCard();
+  updateStats();
+}
+
+function reviewMarked() {
+  closeComplete();
+  const learnIds = [...toLearn];
+  if (learnIds.size === 0 && toLearn.size === 0) return;
+  const reviewDeck = FLASHCARDS.filter(c => learnIds.includes(c.q));
+  if (reviewDeck.length === 0) return;
+  deck = shuffle(reviewDeck);
+  idx = 0;
+  known = new Set(); toLearn = new Set();
+  renderCard();
+  updateStats();
+}
+
+function closeComplete() {
+  document.getElementById('completeOverlay').classList.remove('show');
+}
+
+function updateSubtitle() {
+  const total = deck.length;
+  document.getElementById('subtitleEl').textContent = `// ${total} flashcards · click card to flip`;
+}
+
+window.onload = init;
+</script>
+
+
+</body></html>
